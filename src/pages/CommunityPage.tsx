@@ -75,7 +75,6 @@ function UnifiedCard({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      variants={fadeUp}
       initial="rest"
       whileHover="hover"
       animate="rest"
@@ -170,17 +169,18 @@ export function CommunityPage() {
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {JB_GROUPS.map((group) => (
-            <UnifiedCard 
-              key={group.id}
-              icon={group.icon}
-              title={group.name}
-              subtitle={group.members}
-              color={group.color}
-              bg={group.bg}
-              border={group.border}
-              url={group.url}
-              type="external"
-            />
+            <motion.div key={group.id} variants={fadeUp}>
+              <UnifiedCard 
+                icon={group.icon}
+                title={group.name}
+                subtitle={group.members}
+                color={group.color}
+                bg={group.bg}
+                border={group.border}
+                url={group.url}
+                type="external"
+              />
+            </motion.div>
           ))}
         </div>
       </motion.section>
@@ -199,30 +199,32 @@ export function CommunityPage() {
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {CHANNELS.map((channel) => (
-            <UnifiedCard 
-              key={channel.id}
-              icon={channel.icon}
-              title={channel.name}
-              subtitle={channel.desc}
-              color={channel.color}
-              bg={channel.bg}
-              border={channel.border}
-              url={channel.url}
-              type="internal"
-            />
+            <motion.div key={channel.id} variants={fadeUp}>
+              <UnifiedCard 
+                icon={channel.icon}
+                title={channel.name}
+                subtitle={channel.desc}
+                color={channel.color}
+                bg={channel.bg}
+                border={channel.border}
+                url={channel.url}
+                type="internal"
+              />
+            </motion.div>
           ))}
           {SOCIALS.map((social) => (
-            <UnifiedCard 
-              key={social.id}
-              icon={social.icon}
-              title={social.name}
-              subtitle={social.desc}
-              color={social.color}
-              bg={social.bg}
-              border={social.border}
-              url={social.url}
-              type="social"
-            />
+            <motion.div key={social.id} variants={fadeUp}>
+              <UnifiedCard 
+                icon={social.icon}
+                title={social.name}
+                subtitle={social.desc}
+                color={social.color}
+                bg={social.bg}
+                border={social.border}
+                url={social.url}
+                type="social"
+              />
+            </motion.div>
           ))}
         </div>
       </motion.section>
