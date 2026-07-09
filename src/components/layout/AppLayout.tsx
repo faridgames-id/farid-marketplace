@@ -7,6 +7,7 @@
  * Uses AnimatePresence for page-level route transitions.
  */
 
+import { useEffect } from 'react';
 import type { ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -25,6 +26,11 @@ interface AppLayoutProps {
 export function AppLayout({ children, noPadding = false }: AppLayoutProps) {
   const location = useLocation();
 
+  // Instant scroll to top on route change to prevent smooth-scroll glitches on Android
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [location.pathname]);
+
   return (
     /*
      * Root shell — fills 100% viewport, off-white background (#F8FAFC).
@@ -41,11 +47,11 @@ export function AppLayout({ children, noPadding = false }: AppLayoutProps) {
        * crash/flash on Android/mobile when navigating.
        */}
       <motion.main
-        key={location.pathname}
         id="main-content"
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, ease: 'easeOut' }}
+        style={{ willChange: 'opacity, transform' }}
         className={cn(
           'relative z-10 flex-1 w-full',
           !noPadding && [

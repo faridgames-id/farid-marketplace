@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApps, getApp } from "firebase/app";
 import type { FirebaseApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import type { Auth } from "firebase/auth";
@@ -23,7 +23,10 @@ let db: Firestore | undefined;
 let storage: FirebaseStorage | undefined;
 
 try {
-  app = initializeApp(firebaseConfig);
+  if (!firebaseConfig.apiKey) {
+    throw new Error("Missing Firebase configuration. Please check your .env.local file and restart Vite (npm run dev).");
+  }
+  app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
   auth = getAuth(app);
   db = getFirestore(app);
   storage = getStorage(app);

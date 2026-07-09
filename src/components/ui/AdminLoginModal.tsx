@@ -25,7 +25,7 @@ export function AdminLoginModal({ isOpen, onClose }: AdminLoginModalProps) {
       const { signInWithEmailAndPassword } = await import('firebase/auth');
       const { auth } = await import('../../lib/firebase');
       
-      if (!auth) throw new Error('Firebase tidak terhubung.');
+      if (!auth) throw new Error('Firebase tidak terhubung. Cek konfigurasi dan restart Vite jika Anda baru menambahkan .env.local.');
       await signInWithEmailAndPassword(auth, email, password);
       onClose();
       navigate('/admin');
