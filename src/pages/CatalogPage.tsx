@@ -10,7 +10,8 @@
  *   - AnimatePresence for filter transitions
  */
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, SlidersHorizontal, ChevronDown, Package } from 'lucide-react';
 import { cn } from '@lib/utils';
@@ -41,7 +42,19 @@ export function CatalogPage() {
   const [selectedAccount, setSelectedAccount] = useState<Account | null>(null);
   const [showSortMenu, setShowSortMenu] = useState(false);
 
+  const [searchParams, setSearchParams] = useSearchParams();
   const accounts = useAccountStore(state => state.accounts);
+
+  // Auto-open modal if ?id= is in the URL
+  useEffect(() => {
+    const idParam = searchParams.get('id');
+    if (idParam && accounts.length > 0) {
+      const acc = accounts.find(a => a.id === idParam);
+      if (acc) {
+        setSelectedAccount(acc);
+      }
+    }
+  }, [searchParams, accounts]);
 
   // ─── Filter & Sort Logic ────────────────────────────────────────────────────
   const filteredAccounts = useMemo(() => {
@@ -267,7 +280,10 @@ export function CatalogPage() {
       <AccountModal
         account={selectedAccount}
         isOpen={!!selectedAccount}
-        onClose={() => setSelectedAccount(null)}
+        onClose={() => {
+          setSelectedAccount(null);
+          setSearchParams({});
+        }}
       />
     </div>
   );
