@@ -219,9 +219,9 @@ export function AdminPage() {
       const specs = form.get('specs') as string;
       let imageUrl = form.get('imageUrl') as string;
       
-      // Auto-extract from HTML/BBCode if user pasted the whole text block
+      // Auto-extract from HTML/BBCode if they pasted the whole thing
       if (imageUrl) {
-        const imgMatch = imageUrl.match(/src="([^"]+)"/);
+        const imgMatch = imageUrl.match(/src=["']([^"']+)["']/i);
         const bbcodeMatch = imageUrl.match(/\[img\](.*?)\[\/img\]/i);
         if (imgMatch) imageUrl = imgMatch[1];
         else if (bbcodeMatch) imageUrl = bbcodeMatch[1];
