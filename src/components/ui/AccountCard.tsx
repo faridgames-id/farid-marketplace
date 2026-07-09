@@ -33,7 +33,7 @@ export function AccountCard({ account, onClick }: AccountCardProps) {
       whileHover={{
         y: -5,
         boxShadow: '0 16px 32px rgba(0,0,0,0.08)',
-        transition: { type: 'spring', stiffness: 280, damping: 22 },
+        transition: { type: 'tween', duration: 0.2, ease: 'easeOut' },
       }}
       whileTap={{ scale: 0.98, transition: { duration: 0.1 } }}
     >

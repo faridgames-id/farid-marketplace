@@ -28,8 +28,8 @@ const VISITOR_DATA = [
 ];
 
 const fadeUp: any = {
-  hidden: { opacity: 0, y: 16, filter: 'blur(4px)' },
-  show: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { type: 'spring', stiffness: 200, damping: 24 } }
+  hidden: { opacity: 0, y: 15 },
+  show: { opacity: 1, y: 0, transition: { type: 'tween', duration: 0.3, ease: 'easeOut' } }
 };
 
 import { Navigate } from 'react-router-dom';

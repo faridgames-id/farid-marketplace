@@ -11,8 +11,7 @@
  */
 
 import { useState, useMemo } from 'react';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Search, SlidersHorizontal, ChevronDown, Package } from 'lucide-react';
 import { cn } from '@lib/utils';
 import { AccountCard } from '../components/ui/AccountCard';
@@ -25,13 +24,13 @@ const GAME_FILTERS = ['Semua', 'Free Fire', 'Mobile Legends'];
 const SORT_OPTIONS = ['Terbaru', 'Termurah', 'Termahal', 'Terpopuler'];
 
 const fadeUp: any = {
-  hidden: { opacity: 0, y: 20, filter: 'blur(4px)' },
-  show:   { opacity: 1, y: 0, filter: 'blur(0px)', transition: { type: 'spring', stiffness: 200, damping: 24 } },
+  hidden: { opacity: 0, y: 15 },
+  show:   { opacity: 1, y: 0, transition: { type: 'tween', duration: 0.3, ease: 'easeOut' } },
 };
 
 const cardVariants: any = {
   hidden: { opacity: 0, y: 24, scale: 0.96 },
-  show:   { opacity: 1, y: 0, scale: 1, transition: { type: 'spring', stiffness: 200, damping: 22 } },
+  show:   { opacity: 1, y: 0, scale: 1, transition: { type: 'tween', duration: 0.3, ease: 'easeOut' } },
   exit:   { opacity: 0, scale: 0.96, transition: { duration: 0.15 } },
 };
 
@@ -41,9 +40,6 @@ export function CatalogPage() {
   const [activeSort, setActiveSort] = useState('Terbaru');
   const [selectedAccount, setSelectedAccount] = useState<Account | null>(null);
   const [showSortMenu, setShowSortMenu] = useState(false);
-
-  const headerRef = useRef(null);
-  const headerInView = useInView(headerRef, { once: true });
 
   const accounts = useAccountStore(state => state.accounts);
 
@@ -82,10 +78,10 @@ export function CatalogPage() {
 
       {/* ── Premium Catalog Header ─────────────────────────────────────── */}
       <motion.div
-        ref={headerRef}
         variants={fadeUp}
         initial="hidden"
-        animate={headerInView ? 'show' : 'hidden'}
+        whileInView="show"
+        viewport={{ once: true, margin: '50px' }}
         className="relative rounded-[32px] p-6 md:p-8 bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 shadow-[inset_0_2px_4px_rgba(255,255,255,0.15),inset_0_-4px_8px_rgba(0,0,0,0.4),0_12px_30px_rgba(0,0,0,0.4)] flex flex-col gap-5 mb-2"
       >
         {/* Decorative Orbs */}
