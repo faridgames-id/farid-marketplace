@@ -257,12 +257,12 @@ export function AdminPage() {
         <motion.div 
           animate={{ scale: [1, 1.2, 1], x: [0, 30, 0], y: [0, -20, 0] }} 
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-32 -right-32 w-[30rem] h-[30rem] rounded-full bg-white/10 blur-[100px] pointer-events-none" 
+          className="absolute -top-32 -right-32 w-[30rem] h-[30rem] rounded-full bg-white/10  pointer-events-none" 
         />
         <motion.div 
           animate={{ scale: [1, 1.5, 1], x: [0, -30, 0], y: [0, 20, 0] }} 
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute -bottom-32 -left-32 w-[30rem] h-[30rem] rounded-full bg-white/10 blur-[100px] pointer-events-none" 
+          className="absolute -bottom-32 -left-32 w-[30rem] h-[30rem] rounded-full bg-white/10  pointer-events-none" 
         />
         <div className="absolute top-0 right-0 w-full h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
         <div className="absolute bottom-0 right-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
@@ -369,7 +369,7 @@ export function AdminPage() {
             </h2>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
               <div className="relative flex-1 sm:min-w-[280px] group">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-md opacity-0 group-focus-within:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full  opacity-0 group-focus-within:opacity-100 transition-opacity duration-500" />
                 <div className="relative">
                   <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-blue-500 transition-colors" size={18} strokeWidth={2.5} />
                   <input 
@@ -725,7 +725,7 @@ export function AdminPage() {
               >
                 {/* Header */}
                 <div className="bg-gradient-to-br from-green-500 to-emerald-600 p-5 text-white relative">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full  -translate-y-1/2 translate-x-1/2" />
                   <h3 className="font-display text-xl font-bold mb-1 relative z-10">Tandai Terjual</h3>
                   <p className="text-sm text-green-100 relative z-10">Masukkan detail penjualan untuk {accountToSell.id}</p>
                   
@@ -789,7 +789,7 @@ function StatCard({ title, value, icon: Icon, gradient, shadowColor, isCurrency 
         "shadow-xl"
       )}>
       {/* Decorative Blur */}
-      <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-24 h-24 bg-white/20 rounded-full blur-2xl pointer-events-none" />
+      <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-24 h-24 bg-white/20 rounded-full  pointer-events-none" />
       
       <div className="w-10 h-10 rounded-xl bg-white/20  border border-white/20 flex items-center justify-center flex-shrink-0 relative z-10 shadow-sm">
         <Icon size={20} strokeWidth={2.5} className="text-white drop-shadow-sm" />

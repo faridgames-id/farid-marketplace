@@ -379,9 +379,9 @@
   100% { opacity: 1; transform: scale(1); }
 }
 
-@keyframes blur-in {
-  0%   { opacity: 0; filter: blur(8px); }
-  100% { opacity: 1; filter: blur(0px); }
+@keyframes -in {
+  0%   { opacity: 0; filter: (8px); }
+  100% { opacity: 1; filter: (0px); }
 }
 
 /* ─── PWA / Standalone Mode ───────────────────────────────── */

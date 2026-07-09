@@ -29,8 +29,8 @@ export function Footer() {
     <footer className="relative z-10 w-full bg-slate-950 border-t border-slate-800 mt-12 overflow-hidden">
       {/* ── Background Glow Decorations ───────────────────────────── */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" />
-      <div className="absolute -top-32 -right-32 w-80 h-80 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-purple-500/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute -top-32 -right-32 w-80 h-80 bg-blue-500/10 rounded-full  pointer-events-none" />
+      <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-purple-500/10 rounded-full  pointer-events-none" />
 
       {/* ── Top Section ─────────────────────────────────────────── */}
       <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-8 pt-12 pb-10">

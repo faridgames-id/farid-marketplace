@@ -86,8 +86,8 @@ export function CatalogPage() {
       >
         {/* Decorative Orbs */}
         <div className="absolute inset-0 rounded-[32px] overflow-hidden pointer-events-none z-0">
-          <div className="absolute top-0 right-0 -translate-y-1/3 translate-x-1/3 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-48 h-48 bg-indigo-500/20 rounded-full blur-3xl" />
+          <div className="absolute top-0 right-0 -translate-y-1/3 translate-x-1/3 w-64 h-64 bg-blue-500/20 rounded-full " />
+          <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-48 h-48 bg-indigo-500/20 rounded-full " />
         </div>
 
         <div className="relative z-10">

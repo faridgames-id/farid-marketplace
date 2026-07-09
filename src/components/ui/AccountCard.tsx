@@ -2,7 +2,7 @@
  * AccountCard.tsx — Solid White Card with Framer Motion hover
  * ─────────────────────────────────────────────────────────────
  * Features:
- *   - Solid white card surface (no glass/blur)
+ *   - Solid white card surface (no glass/)
  *   - Blue gradient accent bar at top
  *   - motion.div with spring-physics hover (y: -5, scale: 1.02)
  *   - Light-mode text (slate-900/slate-500)

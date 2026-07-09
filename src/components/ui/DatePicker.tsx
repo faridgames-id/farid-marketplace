@@ -126,8 +126,8 @@ export function DatePicker({ value, onChange, placeholder = "Pilih Tanggal" }: {
             )}
             
             {/* Background Decorations */}
-            <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl pointer-events-none" />
-            <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-purple-500/5 rounded-full blur-2xl pointer-events-none" />
+            <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-500/5 rounded-full  pointer-events-none" />
+            <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-purple-500/5 rounded-full  pointer-events-none" />
           </motion.div>
         )}
       </AnimatePresence>

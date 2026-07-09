@@ -34,7 +34,7 @@ export function AppLayout({ children, noPadding = false }: AppLayoutProps) {
   return (
     /*
      * Root shell — fills 100% viewport, off-white background (#F8FAFC).
-     * Clean, solid — no ambient orbs, no blur, no noise.
+     * Clean, solid — no ambient orbs, no , no noise.
      */
     <div className="relative w-full min-h-screen bg-slate-50 dark:bg-slate-950 text-blue-950 dark:text-slate-200 font-sans flex flex-col overflow-x-hidden transition-colors duration-300">
 

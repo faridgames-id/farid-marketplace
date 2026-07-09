@@ -392,7 +392,7 @@ function WhatsAppSection() {
                 <div className="relative">
                   {/* Glowing aura behind icon */}
                   <div className={cn(
-                    "absolute inset-0 rounded-full blur-xl opacity-40 group-hover:opacity-70 transition-opacity duration-500",
+                    "absolute inset-0 rounded-full  opacity-40 group-hover:opacity-70 transition-opacity duration-500",
                     card.priority ? "bg-green-400" : "bg-amber-400"
                   )} />
                   {/* Icon container */}
@@ -462,8 +462,8 @@ function AboutSection() {
       className="relative overflow-hidden p-6 md:p-10 lg:p-12 rounded-[32px] bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 shadow-xl group transition-all duration-500"
     >
       {/* Decorative Glowing Orbs */}
-      <div className="absolute -top-24 -right-24 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl group-hover:bg-blue-400/30 transition-all duration-700 pointer-events-none z-0" />
-      <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl group-hover:bg-indigo-400/30 transition-all duration-700 pointer-events-none z-0" />
+      <div className="absolute -top-24 -right-24 w-64 h-64 bg-blue-500/20 rounded-full  group-hover:bg-blue-400/30 transition-all duration-700 pointer-events-none z-0" />
+      <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-indigo-500/20 rounded-full  group-hover:bg-indigo-400/30 transition-all duration-700 pointer-events-none z-0" />
 
       <div className="relative z-10 flex flex-col md:flex-row md:items-center md:gap-12 gap-8">
         {/* Left: Text Content */}

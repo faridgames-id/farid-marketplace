@@ -156,8 +156,8 @@ export function TutorialPage() {
         className="bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 rounded-[32px] p-8 md:p-14 text-center text-white shadow-xl relative overflow-hidden"
       >
         {/* Glowing Orbs */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-500/30 rounded-full blur-[80px] pointer-events-none" />
-        <div className="absolute bottom-0 right-0 translate-x-1/3 translate-y-1/3 w-[200px] h-[200px] bg-sky-400/20 rounded-full blur-[60px] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-500/30 rounded-full  pointer-events-none" />
+        <div className="absolute bottom-0 right-0 translate-x-1/3 translate-y-1/3 w-[200px] h-[200px] bg-sky-400/20 rounded-full  pointer-events-none" />
         
         {/* Subtle Grid Pattern with Mask */}
         <div 
@@ -172,7 +172,7 @@ export function TutorialPage() {
             transition={{ delay: 0.1, type: "spring", stiffness: 200 }}
             className="relative"
           >
-            <div className="absolute inset-0 bg-blue-500/40 blur-xl rounded-full" />
+            <div className="absolute inset-0 bg-blue-500/40  rounded-full" />
             <div className="relative w-16 h-16 bg-gradient-to-b from-blue-500 to-blue-700 border border-blue-400/30 rounded-[18px] flex items-center justify-center shadow-lg">
               <ShieldCheck size={32} className="text-white drop-shadow-md" strokeWidth={2.5} />
             </div>

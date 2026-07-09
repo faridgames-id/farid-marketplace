@@ -18,8 +18,8 @@ export function AboutPage() {
         transition={{ type: 'spring', stiffness: 180, damping: 22 }}
         className="bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 rounded-[32px] p-8 md:p-14 text-center text-white shadow-xl relative overflow-hidden"
       >
-        <div className="absolute top-0 right-0 -translate-y-1/3 translate-x-1/3 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-48 h-48 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 -translate-y-1/3 translate-x-1/3 w-64 h-64 bg-blue-500/20 rounded-full  pointer-events-none" />
+        <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-48 h-48 bg-indigo-500/20 rounded-full  pointer-events-none" />
         
         <div className="relative z-10 flex flex-col items-center gap-5">
           <div className="w-16 h-16 bg-gradient-to-b from-blue-500 to-blue-700 border border-blue-400/30 rounded-[18px] flex items-center justify-center shadow-lg">
@@ -84,7 +84,7 @@ export function AboutPage() {
                 className="bg-gradient-to-br from-blue-500 to-blue-700 dark:from-blue-600 dark:to-blue-900 rounded-3xl p-6 border-t border-white/30 shadow-xl text-center text-white relative overflow-hidden group"
               >
                 {/* Subtle highlight effect */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 group-hover:bg-white/20 transition-colors" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full  -translate-y-1/2 translate-x-1/2 group-hover:bg-white/20 transition-colors" />
                 
                 <div className="relative z-10 w-14 h-14 rounded-2xl bg-white/20  border border-white/30 flex items-center justify-center text-white mx-auto mb-4 shadow-lg">
                   <Icon size={26} strokeWidth={2.5} />
