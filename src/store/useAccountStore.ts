@@ -33,15 +33,11 @@ export const useAccountStore = create<AccountStore>((set) => ({
         .select('*')
         .order('dateAdded', { ascending: false });
         
-      if (error) {
-        window.alert("SUPABASE FETCH ERROR: " + JSON.stringify(error));
-        throw error;
-      }
+      if (error) throw error;
       
       set({ accounts: data as Account[], isLoading: false, error: null });
     } catch (err: any) {
       console.error('Error fetching accounts:', err);
-      window.alert("ERROR FETCHING: " + (err.message || JSON.stringify(err)));
       set({ error: err.message, isLoading: false });
     }
   },
@@ -79,13 +75,9 @@ export const useAccountStore = create<AccountStore>((set) => ({
         .from(TABLE_NAME)
         .insert([newAccount]);
         
-      if (error) {
-        window.alert("SUPABASE INSERT ERROR: " + JSON.stringify(error));
-        throw error;
-      }
-    } catch (err: any) {
+      if (error) throw error;
+    } catch (err) {
       console.error('Failed to add account:', err);
-      window.alert("ERROR ADDING ACCOUNT: " + (err.message || JSON.stringify(err)));
     }
   },
   deleteAccount: async (id) => {
