@@ -49,7 +49,7 @@ export function DatePicker({ value, onChange, placeholder = "Pilih Tanggal" }: {
         className={cn(
           "flex items-center gap-2.5 rounded-xl px-4 py-2.5 text-sm font-bold transition-all duration-300 w-full sm:w-[160px] justify-between",
           value
-            ? "bg-white dark:bg-slate-800 border-2 border-blue-500 text-blue-700 dark:text-blue-300 shadow-lg"
+            ? "bg-white dark:bg-slate-800 border-2 border-blue-500 text-blue-700 dark:text-blue-300 shadow-sm"
             : "bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-600"
         )}
       >
@@ -64,7 +64,7 @@ export function DatePicker({ value, onChange, placeholder = "Pilih Tanggal" }: {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
             transition={{ duration: 0.2, type: 'spring', bounce: 0.3 }}
-            className="absolute right-0 top-full mt-3 w-[300px] bg-white/95 dark:bg-slate-900/95  rounded-[24px] shadow-lg border border-white/50 dark:border-slate-700/50 p-5 z-50 origin-top-right overflow-hidden"
+            className="absolute right-0 top-full mt-3 w-[300px] bg-white/95 dark:bg-slate-900/95  rounded-[24px] shadow-sm border border-white/50 dark:border-slate-700/50 p-5 z-50 origin-top-right overflow-hidden"
           >
             {/* Header / Year Selector */}
             <div className="flex items-center justify-between mb-5 relative z-10">
@@ -94,7 +94,7 @@ export function DatePicker({ value, onChange, placeholder = "Pilih Tanggal" }: {
                     className={cn(
                       "py-2.5 px-1 rounded-2xl text-sm font-bold transition-all relative overflow-hidden group",
                       isSelected 
-                        ? "text-white shadow-lg" 
+                        ? "text-white shadow-sm" 
                         : isCurrentMonth 
                           ? "text-blue-600 dark:text-blue-400 bg-blue-50/50 dark:bg-blue-900/20"
                           : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-100/50 dark:hover:bg-slate-800/50"

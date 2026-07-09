@@ -42,7 +42,7 @@ export function Footer() {
             <Link to="/" className="flex items-center gap-3 group w-fit">
               <div className="relative w-9 h-9 rounded-[12px] shadow-sm flex-shrink-0 overflow-hidden group-hover:scale-105 transition-transform duration-300">
                 <img src="/logo.jpeg" alt="Farid Shop Logo" className="w-full h-full object-cover scale-[1.08]" />
-                <div className="absolute inset-0 rounded-[12px] shadow-xl pointer-events-none" />
+                <div className="absolute inset-0 rounded-[12px] shadow-sm pointer-events-none" />
               </div>
               <div className="flex flex-col leading-none">
                 <span className="text-[14px] font-black tracking-wider text-slate-100 uppercase leading-none font-display mb-[1px] flex items-center gap-[3px]">
@@ -119,7 +119,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-3 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 hover:bg-slate-800 transition-all duration-300 group"
               >
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#25D366] to-[#128C7E] flex items-center justify-center flex-shrink-0 shadow-lg shadow-green-500/20 group-hover:scale-105 transition-transform duration-300">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#25D366] to-[#128C7E] flex items-center justify-center flex-shrink-0 shadow-sm shadow-green-500/20 group-hover:scale-105 transition-transform duration-300">
                   <Phone size={16} className="text-white" />
                 </div>
                 <div className="flex-1">
@@ -137,7 +137,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-3 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 hover:bg-slate-800 transition-all duration-300 group"
               >
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-pink-500/20 group-hover:scale-105 transition-transform duration-300">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 flex items-center justify-center flex-shrink-0 shadow-sm shadow-pink-500/20 group-hover:scale-105 transition-transform duration-300">
                   <Camera size={18} className="text-white" />
                 </div>
                 <div className="flex-1">

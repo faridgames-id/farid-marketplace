@@ -57,7 +57,7 @@ export function AccountModal({ account, isOpen, onClose }: AccountModalProps) {
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
             className={cn(
               'relative w-full sm:max-w-md md:max-w-lg lg:max-w-2xl bg-white dark:bg-slate-900',
-              'rounded-none sm:rounded-3xl border-0 sm:border sm:border-slate-100 dark:sm:border-slate-800 shadow-2xl overflow-hidden',
+              'rounded-none sm:rounded-3xl border-0 sm:border sm:border-slate-100 dark:sm:border-slate-800 shadow-sm overflow-hidden',
               'flex flex-col h-[100dvh] sm:h-auto sm:max-h-[85vh]'
             )}
             role="dialog"
@@ -87,11 +87,11 @@ export function AccountModal({ account, isOpen, onClose }: AccountModalProps) {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent pointer-events-none" />
                 
                 <div className="absolute bottom-4 left-4 flex gap-2">
-                  <span className="badge bg-black/50  border border-white/20 text-white shadow-lg text-[10px]">
+                  <span className="badge bg-black/50  border border-white/20 text-white shadow-sm text-[10px]">
                     {account.game}
                   </span>
                   {account.badge && (
-                    <span className="badge badge-blue shadow-lg text-[10px]">
+                    <span className="badge badge-blue shadow-sm text-[10px]">
                       {account.badge}
                     </span>
                   )}
@@ -115,7 +115,7 @@ export function AccountModal({ account, isOpen, onClose }: AccountModalProps) {
                     {account.title}
                   </h2>
                   <div className="mt-4 flex flex-wrap items-center gap-3">
-                    <p className="font-display text-[28px] sm:text-[34px] font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-400 dark:via-indigo-400 dark:to-purple-400 drop-shadow-sm">
+                    <p className="font-display text-[28px] sm:text-[34px] font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-400 dark:via-indigo-400 dark:to-purple-400 ">
                       {formatRupiah(account.price)}
                     </p>
                     <span className="px-2 py-0.5 rounded-full bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-400 text-[10px] font-black uppercase tracking-wider border border-green-200 dark:border-green-500/30">
@@ -126,7 +126,7 @@ export function AccountModal({ account, isOpen, onClose }: AccountModalProps) {
 
                 {/* Quick Trust Stats */}
                 <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900/40 dark:to-emerald-800/40 border border-emerald-200 dark:border-emerald-700/50 shadow-xl dark:shadow-xl transition-all hover:-translate-y-0.5">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900/40 dark:to-emerald-800/40 border border-emerald-200 dark:border-emerald-700/50 shadow-sm dark:shadow-sm transition-all hover:-translate-y-0.5">
                     <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-[14px] bg-gradient-to-br from-emerald-400 to-emerald-600 shadow-md shadow-emerald-500/20 flex items-center justify-center flex-shrink-0">
                       <ShieldCheck size={22} className="text-white" strokeWidth={2.5} />
                     </div>
@@ -135,7 +135,7 @@ export function AccountModal({ account, isOpen, onClose }: AccountModalProps) {
                       <p className="text-[11px] font-bold text-emerald-700/80 dark:text-emerald-500/80 mt-0.5 uppercase tracking-wide">Anti Hackback</p>
                     </div>
                   </div>
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/40 dark:to-blue-800/40 border border-blue-200 dark:border-blue-700/50 shadow-xl dark:shadow-xl transition-all hover:-translate-y-0.5">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/40 dark:to-blue-800/40 border border-blue-200 dark:border-blue-700/50 shadow-sm dark:shadow-sm transition-all hover:-translate-y-0.5">
                     <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-[14px] bg-gradient-to-br from-blue-400 to-blue-600 shadow-md shadow-blue-500/20 flex items-center justify-center flex-shrink-0">
                       <Zap size={22} className="text-white" strokeWidth={2.5} />
                     </div>
@@ -161,7 +161,7 @@ export function AccountModal({ account, isOpen, onClose }: AccountModalProps) {
             </div>
 
             {/* ── Fixed Bottom Actions ────────────────────────────────────────────── */}
-            <div className="shrink-0 p-4 pb-6 sm:pb-8 sm:p-6 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-lg z-10">
+            <div className="shrink-0 p-4 pb-6 sm:pb-8 sm:p-6 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm z-10">
               <a
                 href={waUrl}
                 target="_blank"
@@ -177,10 +177,10 @@ export function AccountModal({ account, isOpen, onClose }: AccountModalProps) {
                   isStoreOpen 
                     ? [
                         'bg-gradient-to-b from-blue-400 to-blue-600 border border-blue-500/50',
-                        'shadow-xl',
-                        'hover:from-blue-500 hover:to-blue-700 hover:shadow-xl'
+                        'shadow-sm',
+                        'hover:from-blue-500 hover:to-blue-700 hover:shadow-sm'
                       ]
-                    : 'bg-slate-700 hover:bg-slate-800 text-white shadow-xl'
+                    : 'bg-slate-700 hover:bg-slate-800 text-white shadow-sm'
                 )}
               >
                 <MessageCircle size={20} className={isStoreOpen ? 'text-white' : 'text-slate-300'} />

@@ -75,7 +75,7 @@ function HeroSection() {
   const isOpen = isOperationalHours();
 
   return (
-    <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 shadow-xl px-6 py-10 md:px-10 md:py-14">
+    <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 shadow-sm px-6 py-10 md:px-10 md:py-14">
       <div className="relative z-10 flex flex-col md:flex-row md:items-center md:gap-12">
 
         {/* ── Left: Identity & CTA ──────────────────── */}
@@ -103,7 +103,7 @@ function HeroSection() {
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight">
               Welcome to{' '}
               <span 
-                className="font-display text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-100 to-amber-500 bg-[length:200%_auto] animate-shimmer drop-shadow-sm"
+                className="font-display text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-100 to-amber-500 bg-[length:200%_auto] animate-shimmer "
                 style={{ animationDuration: '4s' }}
               >
                 Farid Shop
@@ -187,7 +187,7 @@ function MarqueeBadges() {
           <div key={groupIndex} className="flex shrink-0 items-center gap-4 pr-4" aria-hidden={groupIndex === 1}>
             {MARQUEE_ITEMS.map((item, i) => (
               <div key={i} className={cn(
-                "flex items-center gap-2.5 px-4 py-2 rounded-full border shadow-xl whitespace-nowrap bg-gradient-to-b",
+                "flex items-center gap-2.5 px-4 py-2 rounded-full border shadow-sm whitespace-nowrap bg-gradient-to-b",
                 "antialiased [backface-visibility:hidden]", // HD rendering
                 item.gradient,
                 item.border
@@ -195,7 +195,7 @@ function MarqueeBadges() {
                 <div className="flex items-center justify-center w-6 h-6 rounded-full bg-white/20 shadow-sm border border-white/20 shrink-0">
                    {item.icon}
                 </div>
-                <span className="text-[14px] font-bold text-white drop-shadow-sm leading-none mt-[1px]">{item.text}</span>
+                <span className="text-[14px] font-bold text-white  leading-none mt-[1px]">{item.text}</span>
               </div>
             ))}
           </div>
@@ -277,7 +277,7 @@ function TrustStatsSimple() {
           variants={fadeUp}
           className={cn(
             'group relative rounded-3xl border border-white/20',
-            'shadow-xl',
+            'shadow-sm',
             'px-4 py-5 flex flex-col items-center gap-3 text-center cursor-default',
             'transition-all duration-300 ease-out bg-gradient-to-br',
             bg
@@ -291,15 +291,15 @@ function TrustStatsSimple() {
           
           <div className={cn(
             'w-12 h-12 rounded-[14px] flex items-center justify-center text-white',
-            'bg-gradient-to-br shadow-lg relative z-10 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3',
+            'bg-gradient-to-br shadow-sm relative z-10 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3',
             gradient, shadow
           )}>
             <Icon size={22} strokeWidth={2.5} />
           </div>
           
           <div className="relative z-10 flex flex-col gap-0.5 mt-0.5">
-            <p className="text-xl md:text-2xl font-black leading-none text-white font-display tracking-tight drop-shadow-sm">{value}</p>
-            <p className="text-[11px] md:text-xs text-white/90 font-bold tracking-wide uppercase drop-shadow-sm">{label}</p>
+            <p className="text-xl md:text-2xl font-black leading-none text-white font-display tracking-tight ">{value}</p>
+            <p className="text-[11px] md:text-xs text-white/90 font-bold tracking-wide uppercase ">{label}</p>
           </div>
         </motion.div>
       ))}
@@ -321,7 +321,7 @@ function WhatsAppSection() {
       phone: WA_UTAMA,    
       badge: 'Online',  
       badgeClass: 'bg-white/20 border-white/30 text-white',  
-      dotClass: 'bg-green-300 shadow-lg animate-pulse',
+      dotClass: 'bg-green-300 shadow-sm animate-pulse',
       priority: true,
       glow: 'rgba(34,197,94,0.3)',
       bg: 'bg-gradient-to-br from-green-600 to-emerald-700',
@@ -334,7 +334,7 @@ function WhatsAppSection() {
       phone: WA_CADANGAN, 
       badge: 'Standby', 
       badgeClass: 'bg-white/20 border-white/30 text-white',  
-      dotClass: 'bg-amber-300 shadow-lg',
+      dotClass: 'bg-amber-300 shadow-sm',
       priority: false,
       glow: 'rgba(245,158,11,0.3)',
       bg: 'bg-gradient-to-br from-amber-500 to-orange-600',
@@ -369,7 +369,7 @@ function WhatsAppSection() {
               variants={fadeUp}
               className={cn(
                 'group relative rounded-[24px] border border-white/20 overflow-hidden',
-                'shadow-xl',
+                'shadow-sm',
                 'p-5 flex flex-col transition-all duration-500',
                 card.bg
               )}
@@ -400,7 +400,7 @@ function WhatsAppSection() {
                     "relative w-12 h-12 rounded-[16px] flex items-center justify-center flex-shrink-0 shadow-md transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 border border-white/20",
                     card.priority ? "bg-gradient-to-br from-[#25D366] to-[#128C7E]" : "bg-gradient-to-br from-amber-400 to-amber-600"
                   )}>
-                    <MessageCircle size={24} className="text-white drop-shadow-sm" fill="white" strokeWidth={0} />
+                    <MessageCircle size={24} className="text-white " fill="white" strokeWidth={0} />
                   </div>
                 </div>
                 
@@ -412,8 +412,8 @@ function WhatsAppSection() {
               </div>
 
               <div className="relative z-10 flex-1">
-                <p className="text-base font-bold text-white leading-tight group-hover:text-white/90 transition-colors drop-shadow-sm">{card.label}</p>
-                <p className="text-xs text-white/80 mt-1 font-medium drop-shadow-sm">{card.sublabel}</p>
+                <p className="text-base font-bold text-white leading-tight group-hover:text-white/90 transition-colors ">{card.label}</p>
+                <p className="text-xs text-white/80 mt-1 font-medium ">{card.sublabel}</p>
               </div>
 
               <div className="mt-4 relative z-10">
@@ -459,7 +459,7 @@ function AboutSection() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '50px' }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
-      className="relative overflow-hidden p-6 md:p-10 lg:p-12 rounded-[32px] bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 shadow-xl group transition-all duration-500"
+      className="relative overflow-hidden p-6 md:p-10 lg:p-12 rounded-[32px] bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 shadow-sm group transition-all duration-500"
     >
       {/* Decorative Glowing Orbs */}
       <div className="absolute -top-24 -right-24 w-64 h-64 bg-blue-500/20 rounded-full  group-hover:bg-blue-400/30 transition-all duration-700 pointer-events-none z-0" />
@@ -469,15 +469,15 @@ function AboutSection() {
         {/* Left: Text Content */}
         <div className="md:flex-1 flex flex-col justify-center">
           <div className="flex items-center gap-2 mb-4">
-            <div className="p-1.5 rounded-lg bg-white/10 text-white shadow-xl border border-white/20 ">
+            <div className="p-1.5 rounded-lg bg-white/10 text-white shadow-sm border border-white/20 ">
               <Zap size={14} className="animate-[pulse_3s_ease-in-out_infinite]" />
             </div>
-            <span className="text-xs font-black text-blue-200 uppercase tracking-widest drop-shadow-sm">Tentang Kami</span>
+            <span className="text-xs font-black text-blue-200 uppercase tracking-widest ">Tentang Kami</span>
           </div>
           
           <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-black text-white leading-[1.15] mb-4">
             Marketplace Akun Game <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-sky-300 to-blue-300 bg-[length:200%_auto] animate-shimmer drop-shadow-sm">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-sky-300 to-blue-300 bg-[length:200%_auto] animate-shimmer ">
               Paling Terpercaya
             </span>
           </h2>
@@ -497,12 +497,12 @@ function AboutSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.2 + (index * 0.1), ease: "easeOut" }}
-              className="group/item flex items-center gap-4 p-3 md:p-4 rounded-[20px] bg-white/10  border border-white/20 shadow-xl hover:bg-white/20 hover:border-white/30 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-default"
+              className="group/item flex items-center gap-4 p-3 md:p-4 rounded-[20px] bg-white/10  border border-white/20 shadow-sm hover:bg-white/20 hover:border-white/30 hover:-translate-y-1 hover:shadow-sm transition-all duration-300 cursor-default"
             >
-              <div className="w-10 h-10 md:w-12 md:h-12 rounded-[14px] bg-gradient-to-br from-blue-500 to-blue-700 border border-blue-400/50 flex items-center justify-center flex-shrink-0 shadow-lg group-hover/item:scale-110 transition-transform duration-300">
-                <Icon size={18} className="text-white drop-shadow-md" strokeWidth={2.5} />
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-[14px] bg-gradient-to-br from-blue-500 to-blue-700 border border-blue-400/50 flex items-center justify-center flex-shrink-0 shadow-sm group-hover/item:scale-110 transition-transform duration-300">
+                <Icon size={18} className="text-white " strokeWidth={2.5} />
               </div>
-              <p className="text-[14px] md:text-[15px] text-white font-bold leading-snug drop-shadow-sm">
+              <p className="text-[14px] md:text-[15px] text-white font-bold leading-snug ">
                 {text}
               </p>
             </motion.div>
@@ -686,7 +686,7 @@ export function HomePage() {
 
       {/* 7. FINAL CTA BANNER ────────────────────────────────── */}
       <motion.section
-        className="relative overflow-hidden p-8 md:p-14 text-center rounded-3xl bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 shadow-xl"
+        className="relative overflow-hidden p-8 md:p-14 text-center rounded-3xl bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 shadow-sm"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '0px' }}
@@ -713,7 +713,7 @@ export function HomePage() {
               to="/catalog"
               onClick={() => useAnalyticsStore.getState().recordClick()}
               id="home-final-cta-catalog"
-              className="inline-flex items-center gap-2 text-sm py-3 px-7 bg-white text-blue-700 font-bold rounded-2xl hover:bg-blue-50 transition-colors shadow-lg"
+              className="inline-flex items-center gap-2 text-sm py-3 px-7 bg-white text-blue-700 font-bold rounded-2xl hover:bg-blue-50 transition-colors shadow-sm"
             >
               <Sparkles size={16} />
               Cari Akun Sekarang

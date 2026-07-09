@@ -44,7 +44,7 @@ function NavButton({ item, isActive }: { item: NavItem; isActive: boolean }) {
             'absolute -top-5 w-[74px] h-[64px] rounded-[24px]', // wider to accommodate text
             'bg-gradient-to-b from-blue-400 to-blue-600',
             'border-[4px] border-white dark:border-slate-950',
-            'shadow-xl dark:shadow-xl'
+            'shadow-sm dark:shadow-sm'
           )}
           transition={{ type: "spring", stiffness: 300, damping: 25 }}
         />
@@ -54,10 +54,10 @@ function NavButton({ item, isActive }: { item: NavItem; isActive: boolean }) {
         'relative z-10 flex flex-col items-center justify-center gap-1 transition-all duration-300',
         isActive ? '-translate-y-4 text-white' : 'translate-y-0 text-slate-400 dark:text-slate-500'
       )}>
-        <Icon size={22} strokeWidth={isActive ? 2.5 : 2} className={isActive ? "drop-shadow-sm" : ""} />
+        <Icon size={22} strokeWidth={isActive ? 2.5 : 2} className={isActive ? "" : ""} />
         <span className={cn(
           'text-[10px] font-bold tracking-wide transition-all duration-300',
-          isActive ? 'drop-shadow-sm' : ''
+          isActive ? '' : ''
         )}>
           {item.label}
         </span>
@@ -83,7 +83,7 @@ export function BottomNav() {
         'fixed bottom-0 left-0 right-0 z-50',
         'bg-white dark:bg-slate-950',
         'border-t border-slate-200 dark:border-slate-800',
-        'shadow-lg dark:shadow-lg',
+        'shadow-sm dark:shadow-sm',
         'transition-colors duration-300',
         'pb-safe'
       )}

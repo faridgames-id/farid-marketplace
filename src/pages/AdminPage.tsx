@@ -250,7 +250,7 @@ export function AdminPage() {
       {/* ── Header Admin ── */}
       <motion.div 
         initial="hidden" animate="show" variants={fadeUp}
-        className="relative rounded-[32px] p-8 md:p-10 overflow-hidden bg-gradient-to-br from-blue-600 to-indigo-700 text-white shadow-xl border-t border-white/10"
+        className="relative rounded-[32px] p-8 md:p-10 overflow-hidden bg-gradient-to-br from-blue-600 to-indigo-700 text-white shadow-sm border-t border-white/10"
       >
         {/* Animated Background Gradients & Patterns */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff1a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff1a_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-50" />
@@ -279,30 +279,30 @@ export function AdminPage() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white"></span>
               </div>
-              <span className="text-xs font-bold text-white tracking-widest uppercase drop-shadow-sm">Pusat Kendali</span>
+              <span className="text-xs font-bold text-white tracking-widest uppercase ">Pusat Kendali</span>
             </motion.div>
             
             <div className="flex items-center gap-5 mb-4">
-              <div className="p-4 bg-white/20 rounded-2xl  border border-white/30 shadow-xl">
-                <LayoutDashboard size={32} className="text-white drop-shadow-md" strokeWidth={2} />
+              <div className="p-4 bg-white/20 rounded-2xl  border border-white/30 shadow-sm">
+                <LayoutDashboard size={32} className="text-white " strokeWidth={2} />
               </div>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-black tracking-tight drop-shadow-sm text-white">
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-black tracking-tight  text-white">
                 Admin Dashboard
               </h1>
             </div>
-            <p className="text-blue-50 max-w-2xl text-base md:text-lg font-medium leading-relaxed drop-shadow-sm">
+            <p className="text-blue-50 max-w-2xl text-base md:text-lg font-medium leading-relaxed ">
               Kelola katalog akun, pantau statistik performa secara real-time, dan atur semua penjualan dengan efisiensi maksimal.
             </p>
           </div>
           
           <div className="hidden md:flex gap-4">
-            <div className="flex flex-col justify-center bg-white/10  border border-white/20 rounded-2xl p-5 min-w-[140px] transform hover:-translate-y-1 transition-all duration-300 shadow-xl">
+            <div className="flex flex-col justify-center bg-white/10  border border-white/20 rounded-2xl p-5 min-w-[140px] transform hover:-translate-y-1 transition-all duration-300 shadow-sm">
               <span className="text-blue-100 text-xs font-bold uppercase tracking-wider mb-2">Total Akun</span>
-              <div className="text-3xl font-black text-white drop-shadow-sm">{totalAccounts}</div>
+              <div className="text-3xl font-black text-white ">{totalAccounts}</div>
             </div>
-            <div className="flex flex-col justify-center bg-white/10  border border-white/20 rounded-2xl p-5 min-w-[140px] transform hover:-translate-y-1 transition-all duration-300 shadow-xl">
+            <div className="flex flex-col justify-center bg-white/10  border border-white/20 rounded-2xl p-5 min-w-[140px] transform hover:-translate-y-1 transition-all duration-300 shadow-sm">
               <span className="text-blue-100 text-xs font-bold uppercase tracking-wider mb-2">Terjual</span>
-              <div className="text-3xl font-black text-white drop-shadow-sm">{soldAccounts}</div>
+              <div className="text-3xl font-black text-white ">{soldAccounts}</div>
             </div>
           </div>
         </div>
@@ -315,7 +315,7 @@ export function AdminPage() {
       >
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 relative z-50">
         <h2 className="font-display text-xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
-          <div className="p-2 bg-gradient-to-b from-blue-500 to-indigo-600 rounded-xl text-white shadow-xl border border-blue-500/50">
+          <div className="p-2 bg-gradient-to-b from-blue-500 to-indigo-600 rounded-xl text-white shadow-sm border border-blue-500/50">
             <PieChart size={18} />
           </div>
           Ringkasan Statistik
@@ -326,7 +326,7 @@ export function AdminPage() {
             className={cn(
               "px-5 py-2.5 rounded-xl text-sm font-black whitespace-nowrap transition-all duration-300 w-full sm:w-auto", 
               !activeDateFilter 
-                ? "bg-gradient-to-b from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white shadow-xl border border-blue-600/50" 
+                ? "bg-gradient-to-b from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white shadow-sm border border-blue-600/50" 
                 : "bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 shadow-sm hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-slate-700 dark:hover:text-slate-300"
             )}
           >
@@ -362,7 +362,7 @@ export function AdminPage() {
         <div className="flex flex-col gap-5">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-5">
             <h2 className="font-display text-xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
-              <div className="p-2 bg-gradient-to-b from-emerald-400 to-teal-500 rounded-xl text-white shadow-xl border border-teal-500/50">
+              <div className="p-2 bg-gradient-to-b from-emerald-400 to-teal-500 rounded-xl text-white shadow-sm border border-teal-500/50">
                 <Database size={18} />
               </div>
               Manajemen Katalog
@@ -383,7 +383,7 @@ export function AdminPage() {
               </div>
               <button 
                 onClick={openAddModal}
-                className="flex items-center justify-center gap-2 bg-gradient-to-b from-blue-500 to-indigo-600 hover:from-blue-400 hover:to-indigo-500 text-white px-6 py-3 rounded-full text-sm font-bold shadow-xl hover:-translate-y-0.5 active:scale-95 transition-all flex-shrink-0 border border-indigo-600/50"
+                className="flex items-center justify-center gap-2 bg-gradient-to-b from-blue-500 to-indigo-600 hover:from-blue-400 hover:to-indigo-500 text-white px-6 py-3 rounded-full text-sm font-bold shadow-sm hover:-translate-y-0.5 active:scale-95 transition-all flex-shrink-0 border border-indigo-600/50"
               >
                 <Plus size={18} strokeWidth={3} />
                 <span>Tambah Akun</span>
@@ -409,7 +409,7 @@ export function AdminPage() {
                     {tableGameFilter === game && (
                       <motion.div 
                         layoutId="activeGameTab"
-                        className="absolute inset-0 bg-gradient-to-b from-blue-500 to-blue-600 rounded-full z-0 shadow-xl border border-blue-600/50"
+                        className="absolute inset-0 bg-gradient-to-b from-blue-500 to-blue-600 rounded-full z-0 shadow-sm border border-blue-600/50"
                         transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                       />
                     )}
@@ -436,7 +436,7 @@ export function AdminPage() {
                     {tableStatusFilter === status && (
                       <motion.div 
                         layoutId="activeStatusTab"
-                        className="absolute inset-0 bg-gradient-to-b from-cyan-400 to-blue-500 rounded-full z-0 shadow-xl border border-blue-500/50"
+                        className="absolute inset-0 bg-gradient-to-b from-cyan-400 to-blue-500 rounded-full z-0 shadow-sm border border-blue-500/50"
                         transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                       />
                     )}
@@ -532,7 +532,7 @@ export function AdminPage() {
                         }}
                         title={account.status === 'Available' ? "Tandai Terjual" : "Tandai Ready"}
                         className={cn(
-                          "p-2.5 rounded-xl transition-all shadow-xl text-white hover:-translate-y-0.5 active:scale-95 border",
+                          "p-2.5 rounded-xl transition-all shadow-sm text-white hover:-translate-y-0.5 active:scale-95 border",
                           account.status === 'Available' 
                             ? "bg-gradient-to-b from-emerald-400 to-emerald-600 border-emerald-600/50" 
                             : "bg-gradient-to-b from-amber-400 to-amber-600 border-amber-600/50"
@@ -542,13 +542,13 @@ export function AdminPage() {
                       </button>
                       <button 
                         onClick={() => openEditModal(account)} 
-                        className="p-2.5 rounded-xl transition-all shadow-xl text-white hover:-translate-y-0.5 active:scale-95 border bg-gradient-to-b from-blue-500 to-blue-700 border-blue-700/50"
+                        className="p-2.5 rounded-xl transition-all shadow-sm text-white hover:-translate-y-0.5 active:scale-95 border bg-gradient-to-b from-blue-500 to-blue-700 border-blue-700/50"
                       >
                         <Edit size={18} />
                       </button>
                       <button 
                         onClick={() => handleDelete(account.id)} 
-                        className="p-2.5 rounded-xl transition-all shadow-xl text-white hover:-translate-y-0.5 active:scale-95 border bg-gradient-to-b from-red-500 to-red-700 border-red-700/50"
+                        className="p-2.5 rounded-xl transition-all shadow-sm text-white hover:-translate-y-0.5 active:scale-95 border bg-gradient-to-b from-red-500 to-red-700 border-red-700/50"
                       >
                         <Trash2 size={18} />
                       </button>
@@ -581,7 +581,7 @@ export function AdminPage() {
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                className="relative w-[95%] max-w-[360px] bg-white dark:bg-slate-900 rounded-[28px] shadow-2xl border border-slate-200/50 dark:border-slate-700/50 flex flex-col max-h-[85vh]"
+                className="relative w-[95%] max-w-[360px] bg-white dark:bg-slate-900 rounded-[28px] shadow-sm border border-slate-200/50 dark:border-slate-700/50 flex flex-col max-h-[85vh]"
               >
                   <div className="px-4 py-3 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-slate-50/50 dark:bg-slate-800/50 rounded-t-[28px]">
                     <h3 className="font-display text-[17px] font-bold text-slate-900 dark:text-white flex items-center gap-3">
@@ -617,7 +617,7 @@ export function AdminPage() {
                               <img src={imagePreview} alt="Preview" className="w-full h-full object-cover" />
                             </div>
                             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity z-10">
-                              <p className="text-xs font-bold text-white bg-black/70 px-3 py-1.5 rounded-lg shadow-lg ">Ganti Gambar</p>
+                              <p className="text-xs font-bold text-white bg-black/70 px-3 py-1.5 rounded-lg shadow-sm ">Ganti Gambar</p>
                             </div>
                           </>
                         ) : (
@@ -721,7 +721,7 @@ export function AdminPage() {
                 initial={{ opacity: 0, scale: 0.95, y: 20 }} 
                 animate={{ opacity: 1, scale: 1, y: 0 }} 
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                className="relative w-[95%] max-w-[360px] bg-white dark:bg-slate-900 rounded-[32px] shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden"
+                className="relative w-[95%] max-w-[360px] bg-white dark:bg-slate-900 rounded-[32px] shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden"
               >
                 {/* Header */}
                 <div className="bg-gradient-to-br from-green-500 to-emerald-600 p-5 text-white relative">
@@ -786,17 +786,17 @@ function StatCard({ title, value, icon: Icon, gradient, shadowColor, isCurrency 
       className={cn(
         "relative p-4 md:p-5 rounded-[20px] border border-white/20 flex flex-col gap-3 overflow-hidden text-white cursor-default",
         "bg-gradient-to-br", gradient,
-        "shadow-xl"
+        "shadow-sm"
       )}>
       {/* Decorative Blur */}
       <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-24 h-24 bg-white/20 rounded-full  pointer-events-none" />
       
       <div className="w-10 h-10 rounded-xl bg-white/20  border border-white/20 flex items-center justify-center flex-shrink-0 relative z-10 shadow-sm">
-        <Icon size={20} strokeWidth={2.5} className="text-white drop-shadow-sm" />
+        <Icon size={20} strokeWidth={2.5} className="text-white " />
       </div>
       <div className="relative z-10">
-        <p className="text-xs font-medium text-white/90 drop-shadow-sm tracking-wide">{title}</p>
-        <p className={cn("font-display font-black text-white drop-shadow-md tracking-tight", isCurrency ? "text-[16px] sm:text-lg md:text-xl truncate" : "text-2xl md:text-3xl mt-0.5")}>
+        <p className="text-xs font-medium text-white/90  tracking-wide">{title}</p>
+        <p className={cn("font-display font-black text-white  tracking-tight", isCurrency ? "text-[16px] sm:text-lg md:text-xl truncate" : "text-2xl md:text-3xl mt-0.5")}>
           {value}
         </p>
       </div>
@@ -831,7 +831,7 @@ function CustomSelect({ name, options, defaultValue, direction = 'down' }: { nam
               exit={{ opacity: 0, y: direction === 'down' ? -10 : 10, scale: 0.95 }}
               transition={{ duration: 0.15, ease: "easeOut" }}
               className={cn(
-                "absolute z-[110] left-0 right-0 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-xl overflow-hidden flex flex-col divide-y divide-slate-100 dark:divide-slate-700/50",
+                "absolute z-[110] left-0 right-0 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-sm overflow-hidden flex flex-col divide-y divide-slate-100 dark:divide-slate-700/50",
                 direction === 'down' ? "top-full mt-2" : "bottom-full mb-2"
               )}
             >
@@ -909,7 +909,7 @@ function CustomDatePicker({ name, defaultValue }: { name: string, defaultValue: 
               animate={{ opacity: 1, y: 0, scale: 1 }} 
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
               transition={{ duration: 0.15, ease: "easeOut" }}
-              className="absolute z-[110] bottom-full sm:bottom-auto sm:top-full right-0 sm:left-0 sm:right-auto mb-2 sm:mb-0 sm:mt-2 p-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-xl w-[280px]"
+              className="absolute z-[110] bottom-full sm:bottom-auto sm:top-full right-0 sm:left-0 sm:right-auto mb-2 sm:mb-0 sm:mt-2 p-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-sm w-[280px]"
             >
               <div className="flex justify-between items-center mb-4">
                 <button type="button" onClick={handlePrevMonth} className="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors">

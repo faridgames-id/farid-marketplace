@@ -79,8 +79,8 @@ function UnifiedCard({
       whileHover="hover"
       animate="rest"
       className={cn(
-        "group relative flex items-center justify-between p-5 rounded-[24px] border border-white/20 shadow-lg overflow-hidden",
-        "shadow-xl",
+        "group relative flex items-center justify-between p-5 rounded-[24px] border border-white/20 shadow-sm overflow-hidden",
+        "shadow-sm",
         "transition-all duration-300",
         bg
       )}
@@ -95,14 +95,14 @@ function UnifiedCard({
       <div className="flex items-center gap-4 relative z-10 w-full min-w-0">
         <motion.div 
           variants={iconVariants} 
-          className={cn('w-14 h-14 rounded-[18px] flex items-center justify-center flex-shrink-0 shadow-lg border border-white/30', bg, color)}
+          className={cn('w-14 h-14 rounded-[18px] flex items-center justify-center flex-shrink-0 shadow-sm border border-white/30', bg, color)}
         >
           <Icon size={24} strokeWidth={2.2} />
         </motion.div>
         
         <div className="flex-1 min-w-0 pr-2">
-          <h3 className="font-bold text-white text-[15px] leading-tight truncate group-hover:text-white/90 transition-colors drop-shadow-sm">{title}</h3>
-          <p className="text-[13px] text-white/80 font-medium mt-1 truncate drop-shadow-sm">{subtitle}</p>
+          <h3 className="font-bold text-white text-[15px] leading-tight truncate group-hover:text-white/90 transition-colors ">{title}</h3>
+          <p className="text-[13px] text-white/80 font-medium mt-1 truncate ">{subtitle}</p>
         </div>
       </div>
       
@@ -128,21 +128,21 @@ export function CommunityPage() {
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 rounded-[32px] p-8 md:p-14 text-center text-white shadow-xl relative overflow-hidden"
+        className="bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 rounded-[32px] p-8 md:p-14 text-center text-white shadow-sm relative overflow-hidden"
       >
         <div className="absolute top-0 right-0 -translate-y-1/3 translate-x-1/3 w-[300px] h-[300px] bg-blue-500/30 rounded-full " />
         <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-[250px] h-[250px] bg-purple-500/20 rounded-full " />
         
         <div className="relative z-10 flex flex-col items-center gap-5">
-          <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 border border-blue-400/30 rounded-[20px] flex items-center justify-center shadow-lg">
-            <Users size={32} className="text-white drop-shadow-md" />
+          <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 border border-blue-400/30 rounded-[20px] flex items-center justify-center shadow-sm">
+            <Users size={32} className="text-white " />
           </div>
           
           <div className="space-y-3">
             <h1 className="font-display text-3xl md:text-5xl font-black tracking-tight leading-tight">
               Pusat Komunitas <br className="hidden md:block" />
               <span 
-                className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-100 to-amber-500 bg-[length:200%_auto] animate-shimmer drop-shadow-sm"
+                className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-100 to-amber-500 bg-[length:200%_auto] animate-shimmer "
                 style={{ animationDuration: '4s' }}
               >
                 Farid Shop Game

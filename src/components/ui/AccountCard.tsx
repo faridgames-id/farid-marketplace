@@ -28,7 +28,7 @@ export function AccountCard({ account, onClick }: AccountCardProps) {
       className={cn(
         'group flex flex-col overflow-hidden cursor-pointer relative h-full',
         'bg-white dark:bg-slate-900 rounded-[20px] border border-slate-200/60 dark:border-slate-800',
-        'shadow-lg transition-all duration-500',
+        'shadow-sm transition-all duration-500',
       )}
       whileHover={{
         y: -5,
@@ -55,8 +55,8 @@ export function AccountCard({ account, onClick }: AccountCardProps) {
 
         {/* Top Badges */}
         <div className="absolute top-2.5 left-2.5 right-2.5 flex justify-between items-start z-10">
-          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-gradient-to-r from-blue-600 to-indigo-600 shadow-lg border border-blue-400/30">
-            <span className="text-[9px] font-black text-white tracking-widest uppercase drop-shadow-sm">
+          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-gradient-to-r from-blue-600 to-indigo-600 shadow-sm border border-blue-400/30">
+            <span className="text-[9px] font-black text-white tracking-widest uppercase ">
               {account.game === 'Mobile Legends' ? 'MLBB' : account.game === 'Free Fire' ? 'FF' : account.game}
             </span>
           </div>
@@ -65,15 +65,15 @@ export function AccountCard({ account, onClick }: AccountCardProps) {
         {/* Removed Tier Label based on user request */}
       </div>
 
-      <div className="flex flex-row items-center p-3.5 flex-1 gap-3 bg-gradient-to-br from-blue-700 to-blue-900 border-t border-white/20 shadow-xl transition-colors duration-500 relative">
-        <h3 className="text-[13px] font-extrabold text-white leading-snug line-clamp-2 flex-1 group-hover:text-blue-100 transition-colors drop-shadow-sm">
+      <div className="flex flex-row items-center p-3.5 flex-1 gap-3 bg-gradient-to-br from-blue-700 to-blue-900 border-t border-white/20 shadow-sm transition-colors duration-500 relative">
+        <h3 className="text-[13px] font-extrabold text-white leading-snug line-clamp-2 flex-1 group-hover:text-blue-100 transition-colors ">
           {account.title}
         </h3>
 
         <div className="w-px h-8 bg-white/30 rounded-full flex-shrink-0" />
 
         <div className="flex-shrink-0">
-          <p className="text-[15px] font-black text-white tracking-tight flex items-baseline gap-1 drop-shadow-sm">
+          <p className="text-[15px] font-black text-white tracking-tight flex items-baseline gap-1 ">
             <span className="text-[10px] text-blue-200 font-bold">Rp</span>
             {account.price.toLocaleString('id-ID')}
           </p>

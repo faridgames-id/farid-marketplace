@@ -82,7 +82,7 @@ export function CatalogPage() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: '50px' }}
-        className="relative rounded-[32px] p-6 md:p-8 bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 shadow-xl flex flex-col gap-5 mb-2"
+        className="relative rounded-[32px] p-6 md:p-8 bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 shadow-sm flex flex-col gap-5 mb-2"
       >
         {/* Decorative Orbs */}
         <div className="absolute inset-0 rounded-[32px] overflow-hidden pointer-events-none z-0">
@@ -91,11 +91,11 @@ export function CatalogPage() {
         </div>
 
         <div className="relative z-10">
-          <h1 className="font-display text-2xl md:text-3xl font-black text-white tracking-tight drop-shadow-sm flex items-center gap-2.5">
-            <Package className="w-7 h-7 md:w-8 md:h-8 drop-shadow-sm" strokeWidth={2.5} />
+          <h1 className="font-display text-2xl md:text-3xl font-black text-white tracking-tight  flex items-center gap-2.5">
+            <Package className="w-7 h-7 md:w-8 md:h-8 " strokeWidth={2.5} />
             Katalog Akun
           </h1>
-          <p className="text-sm text-blue-100/90 drop-shadow-sm mt-1">
+          <p className="text-sm text-blue-100/90  mt-1">
             Temukan akun Free Fire & Mobile Legends terbaik
           </p>
         </div>
@@ -106,17 +106,17 @@ export function CatalogPage() {
           <div className={cn(
             'flex items-center gap-2 md:gap-3 px-3 md:px-4 h-12 rounded-2xl flex-1  min-w-0',
             'bg-white/10 border border-white/20',
-            'shadow-lg',
-            'focus-within:border-white/40 focus-within:bg-white/20 focus-within:shadow-lg',
+            'shadow-sm',
+            'focus-within:border-white/40 focus-within:bg-white/20 focus-within:shadow-sm',
             'transition-all duration-200'
           )}>
-            <Search size={16} className="text-white/70 flex-shrink-0 drop-shadow-sm" />
+            <Search size={16} className="text-white/70 flex-shrink-0 " />
             <input
               type="search"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Cari akun FF / ML..."
-              className="w-full min-w-0 flex-1 bg-transparent text-sm text-white placeholder:text-white/60 outline-none drop-shadow-sm"
+              className="w-full min-w-0 flex-1 bg-transparent text-sm text-white placeholder:text-white/60 outline-none "
             />
             {searchQuery && (
               <button
@@ -136,12 +136,12 @@ export function CatalogPage() {
               className={cn(
                 'flex items-center gap-1.5 md:gap-2 px-3 md:px-4 h-12 rounded-2xl flex-shrink-0 ',
                 'bg-white/10 border border-white/20 text-white text-sm font-medium',
-                'shadow-lg',
+                'shadow-sm',
                 'hover:bg-white/20 hover:border-white/30 transition-all duration-200',
                 'active:scale-95'
               )}
             >
-              <span className="drop-shadow-sm whitespace-nowrap">{activeSort}</span>
+              <span className=" whitespace-nowrap">{activeSort}</span>
               <ChevronDown size={14} className={cn('text-white/70 transition-transform', showSortMenu && 'rotate-180')} />
             </button>
             <AnimatePresence>
@@ -151,7 +151,7 @@ export function CatalogPage() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 4, scale: 0.97 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute right-0 top-14 z-50 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-lg rounded-2xl min-w-[140px] overflow-hidden flex flex-col"
+                  className="absolute right-0 top-14 z-50 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm rounded-2xl min-w-[140px] overflow-hidden flex flex-col"
                 >
                   {SORT_OPTIONS.map(opt => (
                     <button
@@ -188,7 +188,7 @@ export function CatalogPage() {
                   'flex-shrink-0 px-4 h-9 rounded-full text-xs font-semibold  border',
                   'transition-all duration-200 active:scale-95',
                   isActive
-                    ? 'text-blue-900 bg-white border-white/80 shadow-lg'
+                    ? 'text-blue-900 bg-white border-white/80 shadow-sm'
                     : 'bg-white/10 text-white/80 border-white/20 hover:bg-white/20 hover:text-white shadow-sm'
                 )}
                 whileTap={{ scale: 0.94 }}

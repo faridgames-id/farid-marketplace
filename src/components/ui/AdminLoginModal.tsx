@@ -56,7 +56,7 @@ export function AdminLoginModal({ isOpen, onClose }: AdminLoginModalProps) {
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="relative w-full max-w-sm bg-white dark:bg-slate-900 rounded-[24px] shadow-2xl border border-slate-200/50 dark:border-slate-700/50 overflow-hidden"
+            className="relative w-full max-w-sm bg-white dark:bg-slate-900 rounded-[24px] shadow-sm border border-slate-200/50 dark:border-slate-700/50 overflow-hidden"
           >
             {/* Header */}
             <div className="px-5 py-5 pb-3">

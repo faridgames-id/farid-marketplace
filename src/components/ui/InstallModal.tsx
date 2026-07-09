@@ -29,7 +29,7 @@ export function InstallModal({ isOpen, onClose }: InstallModalProps) {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ type: "spring", stiffness: 300, damping: 25 }}
-          className="relative w-full max-w-[420px] bg-white dark:bg-[#0B1221] border border-slate-100 dark:border-slate-800/80 rounded-[28px] overflow-hidden shadow-2xl dark:shadow-lg flex flex-col max-h-[90vh]"
+          className="relative w-full max-w-[420px] bg-white dark:bg-[#0B1221] border border-slate-100 dark:border-slate-800/80 rounded-[28px] overflow-hidden shadow-sm dark:shadow-sm flex flex-col max-h-[90vh]"
         >
           {/* Close button */}
           <button
@@ -42,7 +42,7 @@ export function InstallModal({ isOpen, onClose }: InstallModalProps) {
           <div className="overflow-y-auto custom-scrollbar flex-1 relative z-10">
             <div className="p-6 md:p-8 flex flex-col items-center">
               {/* Header Icon */}
-              <div className="w-[72px] h-[72px] rounded-full bg-gradient-to-b from-blue-500 to-indigo-600 p-[1px] mb-6 shadow-lg">
+              <div className="w-[72px] h-[72px] rounded-full bg-gradient-to-b from-blue-500 to-indigo-600 p-[1px] mb-6 shadow-sm">
                 <div className="w-full h-full bg-white dark:bg-[#0B1221] rounded-full flex items-center justify-center">
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white shadow-inner">
                     <Smartphone size={26} strokeWidth={2.2} />
@@ -115,7 +115,7 @@ export function InstallModal({ isOpen, onClose }: InstallModalProps) {
               }}
               className={cn(
                 "w-full py-4 rounded-2xl font-bold text-[15px] flex items-center justify-center gap-2 transition-all duration-300",
-                "bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl active:scale-[0.98]"
+                "bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white shadow-sm hover:shadow-sm active:scale-[0.98]"
               )}
             >
               <Smartphone size={18} strokeWidth={2.5} />

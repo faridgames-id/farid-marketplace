@@ -37,7 +37,7 @@ function StoreStatus() {
         )}
         <span className={cn(
           'relative inline-flex rounded-full h-2.5 w-2.5',
-          isOpen ? 'bg-green-500 shadow-lg' : 'bg-slate-300 dark:bg-slate-600'
+          isOpen ? 'bg-green-500 shadow-sm' : 'bg-slate-300 dark:bg-slate-600'
         )} />
       </span>
       <span className={cn('text-xs font-semibold leading-none', isOpen ? 'text-green-600 dark:text-green-400' : 'text-slate-400 dark:text-slate-500')}>
@@ -95,7 +95,7 @@ export function TopNav() {
       'sticky top-0 z-50 w-full',
       'bg-white/95 dark:bg-slate-950/95 ',
       'border-b border-slate-200 dark:border-slate-800',
-      'shadow-lg dark:shadow-none transition-colors duration-300'
+      'shadow-sm dark:shadow-none transition-colors duration-300'
     )}>
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-between h-16">
 
@@ -109,7 +109,7 @@ export function TopNav() {
           <div className="relative w-9 h-9 rounded-[12px] shadow-sm flex-shrink-0 overflow-hidden">
             <img src="/logo.jpeg" alt="Farid Shop Logo" className="w-full h-full object-cover scale-[1.08]" />
             {/* Emboss overlay */}
-            <div className="absolute inset-0 rounded-[12px] shadow-xl pointer-events-none" />
+            <div className="absolute inset-0 rounded-[12px] shadow-sm pointer-events-none" />
           </div>
 
           {/* Logo text */}
@@ -143,7 +143,7 @@ export function TopNav() {
                 'flex items-center justify-center',
                 'active:scale-95 transition-all duration-300',
                 'hover:bg-blue-100 hover:border-blue-300 dark:hover:bg-blue-800/40 dark:hover:border-blue-700/60',
-                'hover:shadow-lg dark:hover:shadow-lg'
+                'hover:shadow-sm dark:hover:shadow-sm'
               )}
               aria-label="Download App"
             >
@@ -161,7 +161,7 @@ export function TopNav() {
               'flex items-center justify-center',
               'active:scale-95 transition-all duration-300',
               'hover:bg-slate-100 hover:border-slate-300 dark:hover:bg-slate-800 dark:hover:border-slate-700',
-              'hover:shadow-lg dark:hover:shadow-lg'
+              'hover:shadow-sm dark:hover:shadow-sm'
             )}
             aria-label="Toggle Theme"
           >
@@ -181,7 +181,7 @@ export function TopNav() {
               'flex items-center justify-center',
               'active:scale-95 transition-all duration-300',
               'hover:bg-indigo-50 hover:border-indigo-200 dark:hover:bg-indigo-500/10 dark:hover:border-indigo-500/30',
-              'hover:shadow-lg dark:hover:shadow-lg'
+              'hover:shadow-sm dark:hover:shadow-sm'
             )}
             aria-label="Admin Login"
           >
