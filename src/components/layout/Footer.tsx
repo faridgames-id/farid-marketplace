@@ -42,7 +42,7 @@ export function Footer() {
             <Link to="/" className="flex items-center gap-3 group w-fit">
               <div className="relative w-9 h-9 rounded-[12px] shadow-sm flex-shrink-0 overflow-hidden group-hover:scale-105 transition-transform duration-300">
                 <img src="/logo.jpeg" alt="Farid Shop Logo" className="w-full h-full object-cover scale-[1.08]" />
-                <div className="absolute inset-0 rounded-[12px] shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-3px_6px_rgba(0,0,0,0.25)] pointer-events-none" />
+                <div className="absolute inset-0 rounded-[12px] shadow-xl pointer-events-none" />
               </div>
               <div className="flex flex-col leading-none">
                 <span className="text-[14px] font-black tracking-wider text-slate-100 uppercase leading-none font-display mb-[1px] flex items-center gap-[3px]">

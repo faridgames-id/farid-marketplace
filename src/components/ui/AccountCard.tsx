@@ -28,7 +28,7 @@ export function AccountCard({ account, onClick }: AccountCardProps) {
       className={cn(
         'group flex flex-col overflow-hidden cursor-pointer relative h-full',
         'bg-white dark:bg-slate-900 rounded-[20px] border border-slate-200/60 dark:border-slate-800',
-        'shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-500',
+        'shadow-lg transition-all duration-500',
       )}
       whileHover={{
         y: -5,
@@ -55,7 +55,7 @@ export function AccountCard({ account, onClick }: AccountCardProps) {
 
         {/* Top Badges */}
         <div className="absolute top-2.5 left-2.5 right-2.5 flex justify-between items-start z-10">
-          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-gradient-to-r from-blue-600 to-indigo-600 shadow-[0_4px_10px_rgba(37,99,235,0.4)] border border-blue-400/30">
+          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-gradient-to-r from-blue-600 to-indigo-600 shadow-lg border border-blue-400/30">
             <span className="text-[9px] font-black text-white tracking-widest uppercase drop-shadow-sm">
               {account.game === 'Mobile Legends' ? 'MLBB' : account.game === 'Free Fire' ? 'FF' : account.game}
             </span>
@@ -65,7 +65,7 @@ export function AccountCard({ account, onClick }: AccountCardProps) {
         {/* Removed Tier Label based on user request */}
       </div>
 
-      <div className="flex flex-row items-center p-3.5 flex-1 gap-3 bg-gradient-to-br from-blue-700 to-blue-900 border-t border-white/20 shadow-[inset_0_2px_4px_rgba(255,255,255,0.15),inset_0_-4px_8px_rgba(0,0,0,0.2)] transition-colors duration-500 relative">
+      <div className="flex flex-row items-center p-3.5 flex-1 gap-3 bg-gradient-to-br from-blue-700 to-blue-900 border-t border-white/20 shadow-xl transition-colors duration-500 relative">
         <h3 className="text-[13px] font-extrabold text-white leading-snug line-clamp-2 flex-1 group-hover:text-blue-100 transition-colors drop-shadow-sm">
           {account.title}
         </h3>

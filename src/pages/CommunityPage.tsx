@@ -81,7 +81,7 @@ function UnifiedCard({
       animate="rest"
       className={cn(
         "group relative flex items-center justify-between p-5 rounded-[24px] border border-white/20 shadow-lg overflow-hidden",
-        "shadow-[inset_0_2px_4px_rgba(255,255,255,0.3),inset_0_-4px_8px_rgba(0,0,0,0.15),0_10px_20px_rgba(0,0,0,0.15)]",
+        "shadow-xl",
         "transition-all duration-300",
         bg
       )}
@@ -110,7 +110,7 @@ function UnifiedCard({
       <motion.div 
         variants={arrowVariants} 
         className={cn(
-          "w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 relative z-10 shadow-sm transition-colors backdrop-blur-sm",
+          "w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 relative z-10 shadow-sm transition-colors ",
           "bg-white/20 text-white border border-white/30 group-hover:bg-white/30"
         )}
       >
@@ -129,7 +129,7 @@ export function CommunityPage() {
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 rounded-[32px] p-8 md:p-14 text-center text-white shadow-[inset_0_2px_4px_rgba(255,255,255,0.15),inset_0_-4px_8px_rgba(0,0,0,0.4),0_12px_30px_rgba(0,0,0,0.4)] relative overflow-hidden"
+        className="bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 rounded-[32px] p-8 md:p-14 text-center text-white shadow-xl relative overflow-hidden"
       >
         <div className="absolute top-0 right-0 -translate-y-1/3 translate-x-1/3 w-[300px] h-[300px] bg-blue-500/30 rounded-full blur-[80px]" />
         <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-[250px] h-[250px] bg-purple-500/20 rounded-full blur-[60px]" />
@@ -158,7 +158,7 @@ export function CommunityPage() {
 
       {/* ── BAGIAN 1: GRUP JB ────────────────────────────────────────────── */}
       <motion.section 
-        variants={stagger} initial="hidden" animate="show"
+         initial="hidden" animate="show"
         className="flex flex-col gap-5"
       >
         <div className="flex items-center gap-2.5 border-b-[1.5px] border-slate-900 pb-2.5">
@@ -187,7 +187,7 @@ export function CommunityPage() {
 
       {/* ── BAGIAN 2: SALURAN & SOSIAL MEDIA ─────────────────────────────── */}
       <motion.section 
-        variants={stagger} initial="hidden" animate="show"
+         initial="hidden" animate="show"
         className="flex flex-col gap-5 mt-2"
       >
         <div className="flex items-center gap-2.5 border-b-[1.5px] border-slate-900 pb-2.5">

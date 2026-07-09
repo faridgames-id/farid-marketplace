@@ -80,9 +80,9 @@ export function CatalogPage() {
       <motion.div
         variants={fadeUp}
         initial="hidden"
-        whileInView="show"
+        animate="show"
         viewport={{ once: true, margin: '50px' }}
-        className="relative rounded-[32px] p-6 md:p-8 bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 shadow-[inset_0_2px_4px_rgba(255,255,255,0.15),inset_0_-4px_8px_rgba(0,0,0,0.4),0_12px_30px_rgba(0,0,0,0.4)] flex flex-col gap-5 mb-2"
+        className="relative rounded-[32px] p-6 md:p-8 bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 shadow-xl flex flex-col gap-5 mb-2"
       >
         {/* Decorative Orbs */}
         <div className="absolute inset-0 rounded-[32px] overflow-hidden pointer-events-none z-0">
@@ -104,10 +104,10 @@ export function CatalogPage() {
         <div className="relative z-20 flex gap-2 md:gap-3 w-full">
           {/* Search bar — glassmorphism */}
           <div className={cn(
-            'flex items-center gap-2 md:gap-3 px-3 md:px-4 h-12 rounded-2xl flex-1 backdrop-blur-md min-w-0',
+            'flex items-center gap-2 md:gap-3 px-3 md:px-4 h-12 rounded-2xl flex-1  min-w-0',
             'bg-white/10 border border-white/20',
-            'shadow-[0_4px_12px_rgba(0,0,0,0.1)]',
-            'focus-within:border-white/40 focus-within:bg-white/20 focus-within:shadow-[0_8px_20px_rgba(0,0,0,0.2)]',
+            'shadow-lg',
+            'focus-within:border-white/40 focus-within:bg-white/20 focus-within:shadow-lg',
             'transition-all duration-200'
           )}>
             <Search size={16} className="text-white/70 flex-shrink-0 drop-shadow-sm" />
@@ -134,9 +134,9 @@ export function CatalogPage() {
               type="button"
               onClick={() => setShowSortMenu(!showSortMenu)}
               className={cn(
-                'flex items-center gap-1.5 md:gap-2 px-3 md:px-4 h-12 rounded-2xl flex-shrink-0 backdrop-blur-md',
+                'flex items-center gap-1.5 md:gap-2 px-3 md:px-4 h-12 rounded-2xl flex-shrink-0 ',
                 'bg-white/10 border border-white/20 text-white text-sm font-medium',
-                'shadow-[0_4px_12px_rgba(0,0,0,0.1)]',
+                'shadow-lg',
                 'hover:bg-white/20 hover:border-white/30 transition-all duration-200',
                 'active:scale-95'
               )}
@@ -151,7 +151,7 @@ export function CatalogPage() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 4, scale: 0.97 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute right-0 top-14 z-50 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-[0_12px_40px_rgba(0,0,0,0.15)] rounded-2xl min-w-[140px] overflow-hidden flex flex-col"
+                  className="absolute right-0 top-14 z-50 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-lg rounded-2xl min-w-[140px] overflow-hidden flex flex-col"
                 >
                   {SORT_OPTIONS.map(opt => (
                     <button
@@ -185,10 +185,10 @@ export function CatalogPage() {
                 type="button"
                 onClick={() => setActiveFilter(chip)}
                 className={cn(
-                  'flex-shrink-0 px-4 h-9 rounded-full text-xs font-semibold backdrop-blur-md border',
+                  'flex-shrink-0 px-4 h-9 rounded-full text-xs font-semibold  border',
                   'transition-all duration-200 active:scale-95',
                   isActive
-                    ? 'text-blue-900 bg-white border-white/80 shadow-[0_4px_12px_rgba(0,0,0,0.2)]'
+                    ? 'text-blue-900 bg-white border-white/80 shadow-lg'
                     : 'bg-white/10 text-white/80 border-white/20 hover:bg-white/20 hover:text-white shadow-sm'
                 )}
                 whileTap={{ scale: 0.94 }}

@@ -48,13 +48,13 @@ export function AboutPage() {
         initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
         animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         transition={{ delay: 0.1, type: 'spring', stiffness: 200, damping: 24 }}
-        className="bg-white dark:bg-slate-900 rounded-[32px] p-6 md:p-10 border border-slate-200 dark:border-slate-800 shadow-[0_8px_30px_rgba(0,0,0,0.04)] mt-2 flex flex-col gap-6"
+        className="bg-white dark:bg-slate-900 rounded-[32px] p-6 md:p-10 border border-slate-200 dark:border-slate-800 shadow-lg mt-2 flex flex-col gap-6"
       >
         {/* Logo Image */}
-        <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-[28px] shrink-0 overflow-hidden border-[3px] border-white shadow-[0_12px_30px_-4px_rgba(0,0,0,0.12),0_4px_10px_-2px_rgba(0,0,0,0.05)]">
+        <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-[28px] shrink-0 overflow-hidden border-[3px] border-white shadow-lg">
           <img src="/logo.jpeg" alt="Logo Farid Shop Game" className="w-full h-full object-cover" />
           {/* Emboss overlay */}
-          <div className="absolute inset-0 rounded-[25px] shadow-[inset_0_3px_6px_rgba(255,255,255,0.4),inset_0_-4px_8px_rgba(0,0,0,0.2)] pointer-events-none" />
+          <div className="absolute inset-0 rounded-[25px] shadow-xl pointer-events-none" />
         </div>
 
         <div className="flex flex-col gap-3">
@@ -77,16 +77,16 @@ export function AboutPage() {
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                animate={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.03, type: 'spring', stiffness: 200, damping: 22 }}
                 whileHover={{ y: -4, transition: { type: 'spring', stiffness: 300, damping: 20 } }}
-                className="bg-gradient-to-br from-blue-500 to-blue-700 dark:from-blue-600 dark:to-blue-900 rounded-3xl p-6 border-t border-white/30 shadow-[inset_0_2px_4px_rgba(255,255,255,0.3),inset_0_-4px_8px_rgba(0,0,0,0.2),0_8px_20px_rgba(37,99,235,0.25)] text-center text-white relative overflow-hidden group"
+                className="bg-gradient-to-br from-blue-500 to-blue-700 dark:from-blue-600 dark:to-blue-900 rounded-3xl p-6 border-t border-white/30 shadow-xl text-center text-white relative overflow-hidden group"
               >
                 {/* Subtle highlight effect */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 group-hover:bg-white/20 transition-colors" />
                 
-                <div className="relative z-10 w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center text-white mx-auto mb-4 shadow-[0_4px_12px_rgba(0,0,0,0.1)]">
+                <div className="relative z-10 w-14 h-14 rounded-2xl bg-white/20  border border-white/30 flex items-center justify-center text-white mx-auto mb-4 shadow-lg">
                   <Icon size={26} strokeWidth={2.5} />
                 </div>
                 <h3 className="relative z-10 font-bold text-white text-lg mb-2 drop-shadow-sm">{feature.title}</h3>

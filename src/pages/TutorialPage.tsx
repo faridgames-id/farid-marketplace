@@ -29,31 +29,31 @@ const CARA_BELI_STEPS = [
     title: 'Cari Akun yang Diinginkan',
     desc: 'Jelajahi katalog akun yang tersedia di Instagram atau saluran kami.',
     icon: Search,
-    color: 'bg-gradient-to-b from-sky-400 to-sky-500 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_1px_2px_rgba(0,0,0,0.1)] border border-sky-500/50'
+    color: 'bg-gradient-to-b from-sky-400 to-sky-500 shadow-xl border border-sky-500/50'
   },
   {
     title: 'Hubungi Admin via WhatsApp',
     desc: 'Tanyakan detail akun, harga, dan ketersediaan kepada admin.',
     icon: MessageCircle,
-    color: 'bg-gradient-to-b from-green-400 to-green-500 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_1px_2px_rgba(0,0,0,0.1)] border border-green-500/50'
+    color: 'bg-gradient-to-b from-green-400 to-green-500 shadow-xl border border-green-500/50'
   },
   {
     title: 'Negosiasi & Pembayaran',
     desc: 'Sepakati harga & lakukan pembayaran sesuai instruksi metode pembayaran resmi.',
     icon: CreditCard,
-    color: 'bg-gradient-to-b from-yellow-400 to-yellow-500 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_1px_2px_rgba(0,0,0,0.1)] border border-yellow-500/50'
+    color: 'bg-gradient-to-b from-yellow-400 to-yellow-500 shadow-xl border border-yellow-500/50'
   },
   {
     title: 'Terima Akun & Data Login',
     desc: 'Admin akan mengirimkan data akun beserta penjelasan penggunaan.',
     icon: UserCheck,
-    color: 'bg-gradient-to-b from-indigo-400 to-indigo-500 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_1px_2px_rgba(0,0,0,0.1)] border border-indigo-500/50'
+    color: 'bg-gradient-to-b from-indigo-400 to-indigo-500 shadow-xl border border-indigo-500/50'
   },
   {
     title: 'Konfirmasi & Garansi Akun',
     desc: 'Login, cek akun, dan nikmati! Kami berikan garansi sesuai ketentuan yang berlaku.',
     icon: ShieldCheck,
-    color: 'bg-gradient-to-b from-blue-500 to-blue-600 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_1px_2px_rgba(0,0,0,0.1)] border border-blue-600/50'
+    color: 'bg-gradient-to-b from-blue-500 to-blue-600 shadow-xl border border-blue-600/50'
   }
 ];
 
@@ -63,35 +63,35 @@ const REKBER_STEPS = [
     title: 'Pembeli Transfer Dana ke Admin',
     desc: 'Uang ditransfer ke rekening resmi Farid Shop Game dan akan ditahan dengan aman oleh admin.',
     icon: Wallet,
-    color: 'bg-gradient-to-b from-blue-500 to-blue-600 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_1px_2px_rgba(0,0,0,0.1)] border border-blue-600/50',
+    color: 'bg-gradient-to-b from-blue-500 to-blue-600 shadow-xl border border-blue-600/50',
     shadow: ''
   },
   {
     title: 'Penjual Serahkan Data Akun',
     desc: 'Setelah dana masuk, penjual menyerahkan data login (email/password) ke admin untuk dicek.',
     icon: KeyRound,
-    color: 'bg-gradient-to-b from-indigo-500 to-indigo-600 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_1px_2px_rgba(0,0,0,0.1)] border border-indigo-600/50',
+    color: 'bg-gradient-to-b from-indigo-500 to-indigo-600 shadow-xl border border-indigo-600/50',
     shadow: ''
   },
   {
     title: 'Admin Mengecek & Mengamankan',
     desc: 'Admin memeriksa kecocokan spesifikasi akun dan mengubah password sementara agar aman.',
     icon: ShieldCheck,
-    color: 'bg-gradient-to-b from-purple-500 to-purple-600 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_1px_2px_rgba(0,0,0,0.1)] border border-purple-600/50',
+    color: 'bg-gradient-to-b from-purple-500 to-purple-600 shadow-xl border border-purple-600/50',
     shadow: ''
   },
   {
     title: 'Pembeli Menerima Akun',
     desc: 'Data login diberikan ke pembeli. Pembeli melakukan pengecekan dan mengamankan akun secara permanen.',
     icon: CheckCircle,
-    color: 'bg-gradient-to-b from-green-500 to-green-600 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_1px_2px_rgba(0,0,0,0.1)] border border-green-600/50',
+    color: 'bg-gradient-to-b from-green-500 to-green-600 shadow-xl border border-green-600/50',
     shadow: ''
   },
   {
     title: 'Dana Diteruskan ke Penjual',
     desc: 'Setelah pembeli mengonfirmasi akun aman, dana baru dicairkan ke rekening penjual oleh admin.',
     icon: Handshake,
-    color: 'bg-gradient-to-b from-emerald-500 to-emerald-600 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_1px_2px_rgba(0,0,0,0.1)] border border-emerald-600/50',
+    color: 'bg-gradient-to-b from-emerald-500 to-emerald-600 shadow-xl border border-emerald-600/50',
     shadow: ''
   }
 ];
@@ -153,7 +153,7 @@ export function TutorialPage() {
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 rounded-[32px] p-8 md:p-14 text-center text-white shadow-[inset_0_2px_4px_rgba(255,255,255,0.15),inset_0_-4px_8px_rgba(0,0,0,0.4),0_12px_30px_rgba(0,0,0,0.4)] relative overflow-hidden"
+        className="bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 rounded-[32px] p-8 md:p-14 text-center text-white shadow-xl relative overflow-hidden"
       >
         {/* Glowing Orbs */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-500/30 rounded-full blur-[80px] pointer-events-none" />
@@ -173,7 +173,7 @@ export function TutorialPage() {
             className="relative"
           >
             <div className="absolute inset-0 bg-blue-500/40 blur-xl rounded-full" />
-            <div className="relative w-16 h-16 bg-gradient-to-b from-blue-500 to-blue-700 border border-blue-400/30 rounded-[18px] flex items-center justify-center shadow-[0_0_40px_rgba(37,99,235,0.6)]">
+            <div className="relative w-16 h-16 bg-gradient-to-b from-blue-500 to-blue-700 border border-blue-400/30 rounded-[18px] flex items-center justify-center shadow-lg">
               <ShieldCheck size={32} className="text-white drop-shadow-md" strokeWidth={2.5} />
             </div>
           </motion.div>
@@ -198,7 +198,7 @@ export function TutorialPage() {
       {/* ── BAGIAN 0: Cara Beli Akun (Poster) ──────────────────────────────── */}
       <section className="flex flex-col gap-6 mt-6">
         <div className="flex items-center justify-center gap-3 pb-2">
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-b from-yellow-300 to-yellow-400 border border-yellow-400/50 text-blue-950 flex items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.6),0_1px_2px_rgba(0,0,0,0.1)]">
+          <div className="w-8 h-8 rounded-xl bg-gradient-to-b from-yellow-300 to-yellow-400 border border-yellow-400/50 text-blue-950 flex items-center justify-center shadow-xl">
             <Search size={16} strokeWidth={3} />
           </div>
           <h2 className="font-display text-2xl md:text-3xl font-black text-blue-950 dark:text-white text-center">
@@ -213,10 +213,10 @@ export function TutorialPage() {
               <motion.div 
                 key={idx}
                 initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                animate={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.03, type: 'spring', stiffness: 200, damping: 22 }}
-                className="bg-white dark:bg-slate-900 rounded-3xl p-5 pt-7 border-2 border-slate-100 dark:border-slate-800 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:border-blue-200 hover:shadow-[0_8px_30px_rgba(37,99,235,0.08)] transition-all flex flex-col items-center text-center relative group"
+                className="bg-white dark:bg-slate-900 rounded-3xl p-5 pt-7 border-2 border-slate-100 dark:border-slate-800 shadow-lg hover:border-blue-200 hover:shadow-lg transition-all flex flex-col items-center text-center relative group"
               >
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-900 dark:bg-white text-white dark:text-blue-950 text-[10px] font-black px-3 py-1 rounded-full shadow-md z-10 whitespace-nowrap">
                   LANGKAH 0{idx + 1}
@@ -258,7 +258,7 @@ export function TutorialPage() {
                   <motion.div 
                     key={idx}
                     initial={{ opacity: 0, x: -16, filter: 'blur(4px)' }}
-                    whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+                    animate={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '0px' }}
                     transition={{ delay: idx * 0.03, type: 'spring', stiffness: 200, damping: 22 }}
                     className="flex items-start gap-5"
@@ -350,7 +350,7 @@ export function TutorialPage() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 className="mt-5 bg-green-50 border border-green-200 rounded-2xl p-4 flex items-center gap-3 shadow-sm"
               >
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center flex-shrink-0 shadow-[0_0_20px_rgba(34,197,94,0.3)]">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center flex-shrink-0 shadow-lg">
                   <ShieldCheck size={20} className="text-white" />
                 </div>
                 <div>

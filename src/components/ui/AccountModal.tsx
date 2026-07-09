@@ -44,7 +44,7 @@ export function AccountModal({ account, isOpen, onClose }: AccountModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"
+            className="absolute inset-0 bg-slate-900/40 "
             onClick={onClose}
             aria-hidden="true"
           />
@@ -66,7 +66,7 @@ export function AccountModal({ account, isOpen, onClose }: AccountModalProps) {
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-20 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-md shadow-sm border border-white/10 flex items-center justify-center text-white/90 hover:text-white transition-all"
+              className="absolute top-4 right-4 z-20 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/40 hover:bg-black/60  shadow-sm border border-white/10 flex items-center justify-center text-white/90 hover:text-white transition-all"
               aria-label="Tutup modal"
             >
               <X size={18} strokeWidth={2.5} />
@@ -87,7 +87,7 @@ export function AccountModal({ account, isOpen, onClose }: AccountModalProps) {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent pointer-events-none" />
                 
                 <div className="absolute bottom-4 left-4 flex gap-2">
-                  <span className="badge bg-black/50 backdrop-blur-md border border-white/20 text-white shadow-lg text-[10px]">
+                  <span className="badge bg-black/50  border border-white/20 text-white shadow-lg text-[10px]">
                     {account.game}
                   </span>
                   {account.badge && (
@@ -126,7 +126,7 @@ export function AccountModal({ account, isOpen, onClose }: AccountModalProps) {
 
                 {/* Quick Trust Stats */}
                 <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900/40 dark:to-emerald-800/40 border border-emerald-200 dark:border-emerald-700/50 shadow-[inset_0_2px_4px_rgba(255,255,255,0.9),inset_0_-4px_8px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.03)] dark:shadow-[inset_0_1px_2px_rgba(255,255,255,0.1),inset_0_-4px_8px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900/40 dark:to-emerald-800/40 border border-emerald-200 dark:border-emerald-700/50 shadow-xl dark:shadow-xl transition-all hover:-translate-y-0.5">
                     <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-[14px] bg-gradient-to-br from-emerald-400 to-emerald-600 shadow-md shadow-emerald-500/20 flex items-center justify-center flex-shrink-0">
                       <ShieldCheck size={22} className="text-white" strokeWidth={2.5} />
                     </div>
@@ -135,7 +135,7 @@ export function AccountModal({ account, isOpen, onClose }: AccountModalProps) {
                       <p className="text-[11px] font-bold text-emerald-700/80 dark:text-emerald-500/80 mt-0.5 uppercase tracking-wide">Anti Hackback</p>
                     </div>
                   </div>
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/40 dark:to-blue-800/40 border border-blue-200 dark:border-blue-700/50 shadow-[inset_0_2px_4px_rgba(255,255,255,0.9),inset_0_-4px_8px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.03)] dark:shadow-[inset_0_1px_2px_rgba(255,255,255,0.1),inset_0_-4px_8px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/40 dark:to-blue-800/40 border border-blue-200 dark:border-blue-700/50 shadow-xl dark:shadow-xl transition-all hover:-translate-y-0.5">
                     <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-[14px] bg-gradient-to-br from-blue-400 to-blue-600 shadow-md shadow-blue-500/20 flex items-center justify-center flex-shrink-0">
                       <Zap size={22} className="text-white" strokeWidth={2.5} />
                     </div>
@@ -161,7 +161,7 @@ export function AccountModal({ account, isOpen, onClose }: AccountModalProps) {
             </div>
 
             {/* ── Fixed Bottom Actions ────────────────────────────────────────────── */}
-            <div className="shrink-0 p-4 pb-6 sm:pb-8 sm:p-6 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-[0_-4px_20px_rgba(0,0,0,0.03)] z-10">
+            <div className="shrink-0 p-4 pb-6 sm:pb-8 sm:p-6 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-lg z-10">
               <a
                 href={waUrl}
                 target="_blank"
@@ -177,8 +177,8 @@ export function AccountModal({ account, isOpen, onClose }: AccountModalProps) {
                   isStoreOpen 
                     ? [
                         'bg-gradient-to-b from-blue-400 to-blue-600 border border-blue-500/50',
-                        'shadow-[inset_0_2px_4px_rgba(255,255,255,0.3),inset_0_-4px_8px_rgba(0,0,0,0.2),0_8px_16px_rgba(37,99,235,0.3)]',
-                        'hover:from-blue-500 hover:to-blue-700 hover:shadow-[inset_0_2px_4px_rgba(255,255,255,0.3),inset_0_-4px_8px_rgba(0,0,0,0.2),0_10px_20px_rgba(37,99,235,0.4)]'
+                        'shadow-xl',
+                        'hover:from-blue-500 hover:to-blue-700 hover:shadow-xl'
                       ]
                     : 'bg-slate-700 hover:bg-slate-800 text-white shadow-xl'
                 )}
@@ -204,7 +204,7 @@ export function AccountModal({ account, isOpen, onClose }: AccountModalProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-black/90 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/90 "
             onClick={() => setIsImageViewerOpen(false)}
           />
           <motion.div 
@@ -216,7 +216,7 @@ export function AccountModal({ account, isOpen, onClose }: AccountModalProps) {
           >
             <button
               onClick={() => setIsImageViewerOpen(false)}
-              className="absolute -top-12 right-0 z-20 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md flex items-center justify-center text-white transition-all"
+              className="absolute -top-12 right-0 z-20 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20  flex items-center justify-center text-white transition-all"
             >
               <X size={20} strokeWidth={2.5} />
             </button>

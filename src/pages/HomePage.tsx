@@ -75,12 +75,12 @@ function HeroSection() {
   const isOpen = isOperationalHours();
 
   return (
-    <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 shadow-[inset_0_2px_4px_rgba(255,255,255,0.15),inset_0_-4px_8px_rgba(0,0,0,0.4),0_12px_30px_rgba(0,0,0,0.4)] px-6 py-10 md:px-10 md:py-14">
+    <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 shadow-xl px-6 py-10 md:px-10 md:py-14">
       <div className="relative z-10 flex flex-col md:flex-row md:items-center md:gap-12">
 
         {/* ── Left: Identity & CTA ──────────────────── */}
         <motion.div
-          variants={stagger}
+          
           initial="hidden"
           animate="show"
           className="flex flex-col items-center md:items-start gap-5 md:max-w-lg"
@@ -187,7 +187,7 @@ function MarqueeBadges() {
           <div key={groupIndex} className="flex shrink-0 items-center gap-4 pr-4" aria-hidden={groupIndex === 1}>
             {MARQUEE_ITEMS.map((item, i) => (
               <div key={i} className={cn(
-                "flex items-center gap-2.5 px-4 py-2 rounded-full border shadow-[inset_0_1px_2px_rgba(255,255,255,0.3),_0_2px_6px_rgba(0,0,0,0.15)] whitespace-nowrap bg-gradient-to-b",
+                "flex items-center gap-2.5 px-4 py-2 rounded-full border shadow-xl whitespace-nowrap bg-gradient-to-b",
                 "antialiased [backface-visibility:hidden]", // HD rendering
                 item.gradient,
                 item.border
@@ -216,9 +216,9 @@ const TRUST_STATS = [
 function TrustStats() {
   return (
     <motion.div
-      variants={staggerFast}
+      
       initial="hidden"
-      whileInView="show"
+      animate="show"
       viewport={{ once: true, margin: '50px' }}
       className="grid grid-cols-2 md:grid-cols-4 gap-3"
     >
@@ -259,9 +259,9 @@ function TrustStatsSimple() {
 
   return (
     <motion.section
-      variants={staggerFast}
+      
       initial="hidden"
-      whileInView="show"
+      animate="show"
       viewport={{ once: true, margin: '50px' }}
       className="flex flex-col gap-4"
     >
@@ -277,7 +277,7 @@ function TrustStatsSimple() {
           variants={fadeUp}
           className={cn(
             'group relative rounded-3xl border border-white/20',
-            'shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-4px_8px_rgba(0,0,0,0.15),0_10px_20px_rgba(0,0,0,0.15)]',
+            'shadow-xl',
             'px-4 py-5 flex flex-col items-center gap-3 text-center cursor-default',
             'transition-all duration-300 ease-out bg-gradient-to-br',
             bg
@@ -321,7 +321,7 @@ function WhatsAppSection() {
       phone: WA_UTAMA,    
       badge: 'Online',  
       badgeClass: 'bg-white/20 border-white/30 text-white',  
-      dotClass: 'bg-green-300 shadow-[0_0_8px_rgba(134,239,172,0.8)] animate-pulse',
+      dotClass: 'bg-green-300 shadow-lg animate-pulse',
       priority: true,
       glow: 'rgba(34,197,94,0.3)',
       bg: 'bg-gradient-to-br from-green-600 to-emerald-700',
@@ -334,7 +334,7 @@ function WhatsAppSection() {
       phone: WA_CADANGAN, 
       badge: 'Standby', 
       badgeClass: 'bg-white/20 border-white/30 text-white',  
-      dotClass: 'bg-amber-300 shadow-[0_0_8px_rgba(253,230,138,0.8)]',
+      dotClass: 'bg-amber-300 shadow-lg',
       priority: false,
       glow: 'rgba(245,158,11,0.3)',
       bg: 'bg-gradient-to-br from-amber-500 to-orange-600',
@@ -345,9 +345,9 @@ function WhatsAppSection() {
   return (
     <motion.section
       initial="hidden"
-      whileInView="show"
+      animate="show"
       viewport={{ once: true, margin: '50px' }}
-      variants={stagger}
+      
       className="flex flex-col gap-4"
     >
       <motion.div variants={fadeUp} className="flex items-center gap-2">
@@ -369,7 +369,7 @@ function WhatsAppSection() {
               variants={fadeUp}
               className={cn(
                 'group relative rounded-[24px] border border-white/20 overflow-hidden',
-                'shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-4px_8px_rgba(0,0,0,0.15),0_10px_20px_rgba(0,0,0,0.15)]',
+                'shadow-xl',
                 'p-5 flex flex-col transition-all duration-500',
                 card.bg
               )}
@@ -405,7 +405,7 @@ function WhatsAppSection() {
                 </div>
                 
                 {/* Badge */}
-                <div className={cn('flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-[10px] font-bold tracking-wide uppercase shadow-sm bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm', card.badgeClass)}>
+                <div className={cn('flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-[10px] font-bold tracking-wide uppercase shadow-sm bg-white/80 dark:bg-slate-800/80 ', card.badgeClass)}>
                   <span className={cn('w-1.5 h-1.5 rounded-full', card.dotClass)} />
                   {card.badge}
                 </div>
@@ -456,10 +456,10 @@ function AboutSection() {
   return (
     <motion.section
       initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      animate={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '50px' }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
-      className="relative overflow-hidden p-6 md:p-10 lg:p-12 rounded-[32px] bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 shadow-[inset_0_2px_4px_rgba(255,255,255,0.15),inset_0_-4px_8px_rgba(0,0,0,0.4),0_12px_30px_rgba(0,0,0,0.4)] group transition-all duration-500"
+      className="relative overflow-hidden p-6 md:p-10 lg:p-12 rounded-[32px] bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 shadow-xl group transition-all duration-500"
     >
       {/* Decorative Glowing Orbs */}
       <div className="absolute -top-24 -right-24 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl group-hover:bg-blue-400/30 transition-all duration-700 pointer-events-none z-0" />
@@ -469,7 +469,7 @@ function AboutSection() {
         {/* Left: Text Content */}
         <div className="md:flex-1 flex flex-col justify-center">
           <div className="flex items-center gap-2 mb-4">
-            <div className="p-1.5 rounded-lg bg-white/10 text-white shadow-[inset_0_1px_2px_rgba(255,255,255,0.3)] border border-white/20 backdrop-blur-md">
+            <div className="p-1.5 rounded-lg bg-white/10 text-white shadow-xl border border-white/20 ">
               <Zap size={14} className="animate-[pulse_3s_ease-in-out_infinite]" />
             </div>
             <span className="text-xs font-black text-blue-200 uppercase tracking-widest drop-shadow-sm">Tentang Kami</span>
@@ -494,10 +494,10 @@ function AboutSection() {
             <motion.div 
               key={text} 
               initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.2 + (index * 0.1), ease: "easeOut" }}
-              className="group/item flex items-center gap-4 p-3 md:p-4 rounded-[20px] bg-white/10 backdrop-blur-md border border-white/20 shadow-[inset_0_1px_2px_rgba(255,255,255,0.2),0_4px_12px_rgba(0,0,0,0.1)] hover:bg-white/20 hover:border-white/30 hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(0,0,0,0.2)] transition-all duration-300 cursor-default"
+              className="group/item flex items-center gap-4 p-3 md:p-4 rounded-[20px] bg-white/10  border border-white/20 shadow-xl hover:bg-white/20 hover:border-white/30 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-default"
             >
               <div className="w-10 h-10 md:w-12 md:h-12 rounded-[14px] bg-gradient-to-br from-blue-500 to-blue-700 border border-blue-400/50 flex items-center justify-center flex-shrink-0 shadow-lg group-hover/item:scale-110 transition-transform duration-300">
                 <Icon size={18} className="text-white drop-shadow-md" strokeWidth={2.5} />
@@ -610,9 +610,9 @@ export function HomePage() {
         </div>
 
         <motion.div
-          variants={stagger}
+          
           initial="hidden"
-          whileInView="show"
+          animate="show"
           viewport={{ once: true, margin: '50px' }}
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4"
         >
@@ -653,7 +653,7 @@ export function HomePage() {
 
         <motion.div
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          animate={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '50px' }}
           transition={{ duration: 0.5 }}
           className="relative overflow-hidden -mx-4 md:mx-0 w-full flex"
@@ -686,9 +686,9 @@ export function HomePage() {
 
       {/* 7. FINAL CTA BANNER ────────────────────────────────── */}
       <motion.section
-        className="relative overflow-hidden p-8 md:p-14 text-center rounded-3xl bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 shadow-[inset_0_2px_4px_rgba(255,255,255,0.15),inset_0_-4px_8px_rgba(0,0,0,0.4),0_12px_30px_rgba(0,0,0,0.4)]"
+        className="relative overflow-hidden p-8 md:p-14 text-center rounded-3xl bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 shadow-xl"
         initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '0px' }}
         transition={{ duration: 0.5 }}
       >
@@ -713,7 +713,7 @@ export function HomePage() {
               to="/catalog"
               onClick={() => useAnalyticsStore.getState().recordClick()}
               id="home-final-cta-catalog"
-              className="inline-flex items-center gap-2 text-sm py-3 px-7 bg-white text-blue-700 font-bold rounded-2xl hover:bg-blue-50 transition-colors shadow-[0_4px_14px_rgba(0,0,0,0.15)]"
+              className="inline-flex items-center gap-2 text-sm py-3 px-7 bg-white text-blue-700 font-bold rounded-2xl hover:bg-blue-50 transition-colors shadow-lg"
             >
               <Sparkles size={16} />
               Cari Akun Sekarang

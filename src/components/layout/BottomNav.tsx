@@ -44,7 +44,7 @@ function NavButton({ item, isActive }: { item: NavItem; isActive: boolean }) {
             'absolute -top-5 w-[74px] h-[64px] rounded-[24px]', // wider to accommodate text
             'bg-gradient-to-b from-blue-400 to-blue-600',
             'border-[4px] border-white dark:border-slate-950',
-            'shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-4px_8px_rgba(0,0,0,0.2)] dark:shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-4px_8px_rgba(0,0,0,0.2),0_8px_16px_rgba(0,0,0,0.5)]'
+            'shadow-xl dark:shadow-xl'
           )}
           transition={{ type: "spring", stiffness: 300, damping: 25 }}
         />
@@ -83,7 +83,7 @@ export function BottomNav() {
         'fixed bottom-0 left-0 right-0 z-50',
         'bg-white dark:bg-slate-950',
         'border-t border-slate-200 dark:border-slate-800',
-        'shadow-[0_-8px_20px_rgba(0,0,0,0.08)] dark:shadow-[0_-8px_20px_rgba(0,0,0,0.4)]',
+        'shadow-lg dark:shadow-lg',
         'transition-colors duration-300',
         'pb-safe'
       )}

@@ -20,7 +20,7 @@ export function InstallModal({ isOpen, onClose }: InstallModalProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="absolute inset-0 bg-slate-900/40 dark:bg-black/60 backdrop-blur-sm"
+          className="absolute inset-0 bg-slate-900/40 dark:bg-black/60 "
           onClick={onClose}
         />
         
@@ -29,7 +29,7 @@ export function InstallModal({ isOpen, onClose }: InstallModalProps) {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ type: "spring", stiffness: 300, damping: 25 }}
-          className="relative w-full max-w-[420px] bg-white dark:bg-[#0B1221] border border-slate-100 dark:border-slate-800/80 rounded-[28px] overflow-hidden shadow-2xl dark:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] flex flex-col max-h-[90vh]"
+          className="relative w-full max-w-[420px] bg-white dark:bg-[#0B1221] border border-slate-100 dark:border-slate-800/80 rounded-[28px] overflow-hidden shadow-2xl dark:shadow-lg flex flex-col max-h-[90vh]"
         >
           {/* Close button */}
           <button
@@ -42,7 +42,7 @@ export function InstallModal({ isOpen, onClose }: InstallModalProps) {
           <div className="overflow-y-auto custom-scrollbar flex-1 relative z-10">
             <div className="p-6 md:p-8 flex flex-col items-center">
               {/* Header Icon */}
-              <div className="w-[72px] h-[72px] rounded-full bg-gradient-to-b from-blue-500 to-indigo-600 p-[1px] mb-6 shadow-[0_0_30px_rgba(59,130,246,0.25)]">
+              <div className="w-[72px] h-[72px] rounded-full bg-gradient-to-b from-blue-500 to-indigo-600 p-[1px] mb-6 shadow-lg">
                 <div className="w-full h-full bg-white dark:bg-[#0B1221] rounded-full flex items-center justify-center">
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white shadow-inner">
                     <Smartphone size={26} strokeWidth={2.2} />
