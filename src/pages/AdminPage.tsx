@@ -14,8 +14,7 @@ import { DatePicker } from '../components/ui/DatePicker';
 import { cn, formatRupiah } from '@lib/utils';
 import type { Account, GameType } from '../types/account';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { storage } from '../lib/firebase';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { supabase } from '../lib/supabase';
 
 const VISITOR_DATA = [
   { name: 'Senin', clicks: 400, visits: 500 },
@@ -229,17 +228,21 @@ export function AdminPage() {
       
       let image = imageUrl || imagePreview || 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=600&h=800';
 
-      if (imageFile && storage) {
-        const storageRef = ref(storage, `accounts/${Date.now()}_${imageFile.name}`);
+      if (imageFile) {
+        const fileName = `accounts/${Date.now()}_${imageFile.name}`;
         
-        // Add a 15-second timeout to prevent infinite hang on slow connections or blocked Firebase
-        const uploadTask = uploadBytes(storageRef, imageFile);
+        // Add a 15-second timeout
+        const uploadTask = supabase.storage.from('images').upload(fileName, imageFile);
         const timeoutPromise = new Promise((_, reject) => {
           setTimeout(() => reject(new Error("Waktu unggah gambar habis (Timeout). Periksa koneksi internet atau ukuran gambar.")), 15000);
         });
         
-        await Promise.race([uploadTask, timeoutPromise]);
-        image = await getDownloadURL(storageRef);
+        const result: any = await Promise.race([uploadTask, timeoutPromise]);
+        
+        if (result.error) throw result.error;
+        
+        const { data: { publicUrl } } = supabase.storage.from('images').getPublicUrl(fileName);
+        image = publicUrl;
       }
 
       // Do not await these optimistic store actions. 

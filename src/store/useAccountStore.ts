@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 import type { Account } from '../types/account';
-import { db } from '../lib/firebase';
-import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, onSnapshot } from 'firebase/firestore';
+import { supabase } from '../lib/supabase';
 
 interface AccountStore {
   accounts: Account[];
@@ -14,29 +13,31 @@ interface AccountStore {
   deleteAccount: (id: string) => Promise<void>;
 }
 
-const ACCOUNTS_COLLECTION = 'accounts';
+const TABLE_NAME = 'accounts';
 
-export const useAccountStore = create<AccountStore>((set, get) => ({
+export const useAccountStore = create<AccountStore>((set) => ({
   accounts: [],
   isLoading: false,
   error: null,
-  fetchAccounts: () => {
+  fetchAccounts: async () => {
     set({ isLoading: true });
+    
+    if (!import.meta.env.VITE_SUPABASE_URL) {
+      set({ isLoading: false, error: 'Supabase config missing.' });
+      return;
+    }
+    
     try {
-      if (!import.meta.env.VITE_FIREBASE_API_KEY || !db) {
-        // Fallback or empty if no firebase config
-        set({ isLoading: false, error: 'Firebase config missing. Please update .env.local' });
-        return;
-      }
-      const colRef = collection(db, ACCOUNTS_COLLECTION);
-      onSnapshot(colRef, (snapshot) => {
-        const accs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Account));
-        set({ accounts: accs, isLoading: false, error: null });
-      }, (err) => {
-        console.error('Error fetching accounts:', err);
-        set({ error: err.message, isLoading: false });
-      });
+      const { data, error } = await supabase
+        .from(TABLE_NAME)
+        .select('*')
+        .order('dateAdded', { ascending: false });
+        
+      if (error) throw error;
+      
+      set({ accounts: data as Account[], isLoading: false, error: null });
     } catch (err: any) {
+      console.error('Error fetching accounts:', err);
       set({ error: err.message, isLoading: false });
     }
   },
@@ -50,25 +51,31 @@ export const useAccountStore = create<AccountStore>((set, get) => ({
     }));
     
     try {
-      if (!db) return; // Silent return if no DB, since we optimistically updated
-      const docRef = doc(db, ACCOUNTS_COLLECTION, id);
-      await updateDoc(docRef, updates);
+      const { error } = await supabase
+        .from(TABLE_NAME)
+        .update(updates)
+        .eq('id', id);
+        
+      if (error) throw error;
     } catch (err) {
       console.error('Failed to update account:', err);
-      // We don't rollback here because if it's offline we still want the local state to persist
     }
   },
   addAccount: async (account) => {
     const tempId = Date.now().toString();
+    const newAccount = { ...account, id: tempId };
+    
     // Optimistic update
     set((state) => ({
-      accounts: [{ ...account, id: tempId } as Account, ...state.accounts]
+      accounts: [newAccount as Account, ...state.accounts]
     }));
     
     try {
-      if (!db) return;
-      const colRef = collection(db, ACCOUNTS_COLLECTION);
-      await addDoc(colRef, account);
+      const { error } = await supabase
+        .from(TABLE_NAME)
+        .insert([newAccount]);
+        
+      if (error) throw error;
     } catch (err) {
       console.error('Failed to add account:', err);
     }
@@ -80,9 +87,12 @@ export const useAccountStore = create<AccountStore>((set, get) => ({
     }));
     
     try {
-      if (!db) return;
-      const docRef = doc(db, ACCOUNTS_COLLECTION, id);
-      await deleteDoc(docRef);
+      const { error } = await supabase
+        .from(TABLE_NAME)
+        .delete()
+        .eq('id', id);
+        
+      if (error) throw error;
     } catch (err) {
       console.error('Failed to delete account:', err);
     }

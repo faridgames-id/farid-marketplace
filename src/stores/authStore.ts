@@ -1,7 +1,6 @@
 import { create } from 'zustand';
-import { auth } from '../lib/firebase';
-import type { User } from 'firebase/auth';
-import { onAuthStateChanged } from 'firebase/auth';
+import { supabase } from '../lib/supabase';
+import type { User } from '@supabase/supabase-js';
 
 interface AuthState {
   user: User | null;
@@ -15,23 +14,30 @@ export const useAuthStore = create<AuthState>((set) => ({
   isAdmin: false,
   isLoading: true,
   initAuthListener: () => {
-    if (!auth) {
-      set({ isLoading: false, isAdmin: false });
-      console.warn("Firebase Auth is not initialized.");
-      return;
-    }
-    
-    onAuthStateChanged(auth, (user) => {
-      // Set to admin if their email matches VITE_ADMIN_EMAIL
-      // The default is set to whatever the user configures in .env.local
+    // Initial check
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      const currentUser = session?.user || null;
       const adminEmail = (import.meta.env.VITE_ADMIN_EMAIL || 'admin@faridshop.com').toLowerCase();
-      const isAdmin = user?.email?.toLowerCase() === adminEmail;
+      const isAdmin = currentUser?.email?.toLowerCase() === adminEmail;
       
       set({ 
-        user, 
+        user: currentUser,
         isAdmin,
         isLoading: false 
       });
     });
-  },
+
+    // Listen for changes
+    supabase.auth.onAuthStateChange((_event, session) => {
+      const currentUser = session?.user || null;
+      const adminEmail = (import.meta.env.VITE_ADMIN_EMAIL || 'admin@faridshop.com').toLowerCase();
+      const isAdmin = currentUser?.email?.toLowerCase() === adminEmail;
+      
+      set({ 
+        user: currentUser,
+        isAdmin,
+        isLoading: false 
+      });
+    });
+  }
 }));

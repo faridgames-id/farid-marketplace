@@ -1,6 +1,5 @@
 import { create } from 'zustand';
-import { db } from '../lib/firebase';
-import { doc, getDoc, setDoc, updateDoc, increment, collection, query, where, getDocs, orderBy } from 'firebase/firestore';
+import { supabase } from '../lib/supabase';
 
 export interface AnalyticsData {
   date: string;
@@ -16,7 +15,7 @@ interface AnalyticsStore {
   fetchAnalytics: (startDate: string, endDate: string) => Promise<void>;
 }
 
-const ANALYTICS_COLLECTION = 'analytics';
+const TABLE_NAME = 'analytics';
 
 // Format YYYY-MM-DD
 const getTodayString = () => {
@@ -24,27 +23,27 @@ const getTodayString = () => {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 };
 
-export const useAnalyticsStore = create<AnalyticsStore>((set, get) => ({
+export const useAnalyticsStore = create<AnalyticsStore>((set) => ({
   analyticsData: [],
   isLoading: false,
 
   recordVisit: async () => {
     try {
-      if (!db) return; // Silent fail if firebase not configured
+      if (!import.meta.env.VITE_SUPABASE_URL) return;
       
       const today = getTodayString();
       const hasVisited = localStorage.getItem(`visited_${today}`);
       
-      // If already visited today on this device, skip to avoid spam
       if (hasVisited) return;
       
-      const docRef = doc(db, ANALYTICS_COLLECTION, today);
-      const docSnap = await getDoc(docRef);
-
-      if (docSnap.exists()) {
-        await updateDoc(docRef, { visits: increment(1) });
+      // We do a simple select and update because we don't have an RPC function set up yet.
+      // In a real high-traffic app, you'd use a Postgres function for atomic increment.
+      const { data } = await supabase.from(TABLE_NAME).select('visits').eq('date', today).single();
+      
+      if (data) {
+        await supabase.from(TABLE_NAME).update({ visits: data.visits + 1 }).eq('date', today);
       } else {
-        await setDoc(docRef, { date: today, visits: 1, clicks: 0, timestamp: new Date() });
+        await supabase.from(TABLE_NAME).insert([{ date: today, visits: 1, clicks: 0 }]);
       }
       
       localStorage.setItem(`visited_${today}`, 'true');
@@ -55,16 +54,16 @@ export const useAnalyticsStore = create<AnalyticsStore>((set, get) => ({
 
   recordClick: async () => {
     try {
-      if (!db) return; // Silent fail if firebase not configured
+      if (!import.meta.env.VITE_SUPABASE_URL) return;
       
       const today = getTodayString();
-      const docRef = doc(db, ANALYTICS_COLLECTION, today);
-      const docSnap = await getDoc(docRef);
-
-      if (docSnap.exists()) {
-        await updateDoc(docRef, { clicks: increment(1) });
+      
+      const { data } = await supabase.from(TABLE_NAME).select('clicks').eq('date', today).single();
+      
+      if (data) {
+        await supabase.from(TABLE_NAME).update({ clicks: data.clicks + 1 }).eq('date', today);
       } else {
-        await setDoc(docRef, { date: today, visits: 0, clicks: 1, timestamp: new Date() });
+        await supabase.from(TABLE_NAME).insert([{ date: today, visits: 0, clicks: 1 }]);
       }
     } catch (err) {
       console.error('Failed to record click:', err);
@@ -74,27 +73,21 @@ export const useAnalyticsStore = create<AnalyticsStore>((set, get) => ({
   fetchAnalytics: async (startDate: string, endDate: string) => {
     set({ isLoading: true });
     try {
-      if (!db) {
+      if (!import.meta.env.VITE_SUPABASE_URL) {
         set({ isLoading: false });
         return;
       }
       
-      const colRef = collection(db, ANALYTICS_COLLECTION);
-      const q = query(
-        colRef, 
-        where('date', '>=', startDate), 
-        where('date', '<=', endDate),
-        orderBy('date', 'asc')
-      );
+      const { data, error } = await supabase
+        .from(TABLE_NAME)
+        .select('*')
+        .gte('date', startDate)
+        .lte('date', endDate)
+        .order('date', { ascending: true });
+        
+      if (error) throw error;
       
-      const snapshot = await getDocs(q);
-      const data: AnalyticsData[] = [];
-      
-      snapshot.forEach(doc => {
-        data.push(doc.data() as AnalyticsData);
-      });
-      
-      set({ analyticsData: data, isLoading: false });
+      set({ analyticsData: data as AnalyticsData[], isLoading: false });
     } catch (err) {
       console.error('Failed to fetch analytics:', err);
       set({ isLoading: false });

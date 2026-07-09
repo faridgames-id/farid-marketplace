@@ -22,17 +22,21 @@ export function AdminLoginModal({ isOpen, onClose }: AdminLoginModalProps) {
     setError('');
 
     try {
-      const { signInWithEmailAndPassword } = await import('firebase/auth');
-      const { auth } = await import('../../lib/firebase');
+      const { supabase } = await import('../../lib/supabase');
       
-      if (!auth) throw new Error('Firebase tidak terhubung. Cek konfigurasi dan restart Vite jika Anda baru menambahkan .env.local.');
-      await signInWithEmailAndPassword(auth, email, password);
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+      
+      if (error) throw error;
+      
       onClose();
       navigate('/admin');
     } catch (err: any) {
       console.error(err);
       setError(
-        err.code === 'auth/invalid-credential' 
+        err.message === 'Invalid login credentials' 
           ? 'Email atau kata sandi salah.' 
           : err.message || 'Terjadi kesalahan saat login.'
       );
