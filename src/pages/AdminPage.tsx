@@ -221,12 +221,21 @@ export function AdminPage() {
 
       if (imageFile && storage) {
         const storageRef = ref(storage, `accounts/${Date.now()}_${imageFile.name}`);
-        await uploadBytes(storageRef, imageFile);
+        
+        // Add a 15-second timeout to prevent infinite hang on slow connections or blocked Firebase
+        const uploadTask = uploadBytes(storageRef, imageFile);
+        const timeoutPromise = new Promise((_, reject) => {
+          setTimeout(() => reject(new Error("Waktu unggah gambar habis (Timeout). Periksa koneksi internet atau ukuran gambar.")), 15000);
+        });
+        
+        await Promise.race([uploadTask, timeoutPromise]);
         image = await getDownloadURL(storageRef);
       }
 
+      // Do not await these optimistic store actions. 
+      // If Firestore hangs, the UI will still proceed and close the modal.
       if (editingAccount) {
-        await updateAccount(editingAccount.id, { title, game, price, status, image, dateAdded: dateInput, badge, specs });
+        updateAccount(editingAccount.id, { title, game, price, status, image, dateAdded: dateInput, badge, specs });
       } else {
         const newAcc: Account = {
           id: `ACC-00${accounts.length + 1}`,
@@ -234,12 +243,12 @@ export function AdminPage() {
           tier: 'Standard', image,
           specs, badge, dateAdded: dateInput
         };
-        await addAccount(newAcc);
+        addAccount(newAcc);
       }
       setIsModalOpen(false);
-    } catch (err) {
+    } catch (err: any) {
       console.error("Error saving account:", err);
-      alert("Gagal menyimpan data akun. Pastikan koneksi dan rule Firebase benar.");
+      alert(err.message || "Gagal menyimpan data akun. Pastikan koneksi dan rule Firebase benar.");
     } finally {
       setIsSaving(false);
     }
