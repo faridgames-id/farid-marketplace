@@ -14,8 +14,7 @@
  */
 
 import { useState } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import {
   Sparkles, TrendingUp, Shield, Zap, Phone, MessageCircle,
   ArrowRight, Star, CheckCircle, ChevronRight, Users, Trophy, Clock, Check, Handshake
@@ -36,8 +35,8 @@ const WA_MESSAGE_TEMPLATE = 'Halo Farid Shop Game! 👋 Saya tertarik dengan aku
 
 // ─── Animation Variants ───────────────────────────────────────────────────────
 const fadeUp: any = {
-  hidden: { opacity: 0, y: 20, filter: 'blur(4px)' },
-  show:   { opacity: 1, y: 0, filter: 'blur(0px)', transition: { type: 'spring', stiffness: 200, damping: 24 } },
+  hidden: { opacity: 0, y: 15 },
+  show:   { opacity: 1, y: 0, transition: { type: 'tween', duration: 0.3, ease: 'easeOut' } },
 };
 
 const stagger: any = {
@@ -215,15 +214,12 @@ const TRUST_STATS = [
 ];
 
 function TrustStats() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
-
   return (
     <motion.div
-      ref={ref}
       variants={staggerFast}
       initial="hidden"
-      animate={inView ? 'show' : 'hidden'}
+      whileInView="show"
+      viewport={{ once: true, margin: '50px' }}
       className="grid grid-cols-2 md:grid-cols-4 gap-3"
     >
       {TRUST_STATS.map(({ icon: Icon, value, label, gradient, bg }) => (
@@ -254,9 +250,6 @@ function TrustStats() {
 
 // Simplified TrustStats without the double-icon hack
 function TrustStatsSimple() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
-
   const STATS = [
     { icon: Trophy, value: '1.200+',  label: 'Transaksi Sukses', gradient: 'from-amber-400 to-orange-500', bg: 'from-amber-500 to-orange-600', shadow: 'shadow-orange-900/40', border: 'border-orange-400 hover:border-orange-300' },
     { icon: Users,  value: '800+',    label: 'Member Aktif',     gradient: 'from-blue-500 to-indigo-600', bg: 'from-blue-600 to-indigo-700', shadow: 'shadow-blue-900/40', border: 'border-blue-400 hover:border-blue-300' },
@@ -266,10 +259,10 @@ function TrustStatsSimple() {
 
   return (
     <motion.section
-      ref={ref}
       variants={staggerFast}
       initial="hidden"
-      animate={inView ? 'show' : 'hidden'}
+      whileInView="show"
+      viewport={{ once: true, margin: '50px' }}
       className="flex flex-col gap-4"
     >
       <motion.div variants={fadeUp} className="flex items-center gap-2">
@@ -318,8 +311,6 @@ function TrustStatsSimple() {
 // ─── Sub-component: WhatsApp Admin Cards ──────────────────────────────────────
 function WhatsAppSection() {
   const isOpen = isOperationalHours();
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
 
   const recordClick = useAnalyticsStore(state => state.recordClick);
   const waCards = [
@@ -353,9 +344,9 @@ function WhatsAppSection() {
 
   return (
     <motion.section
-      ref={ref}
       initial="hidden"
-      animate={inView ? 'show' : 'hidden'}
+      whileInView="show"
+      viewport={{ once: true, margin: '50px' }}
       variants={stagger}
       className="flex flex-col gap-4"
     >
@@ -462,15 +453,12 @@ const ABOUT_FEATURES = [
 ];
 
 function AboutSection() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
-
   return (
     <motion.section
-      ref={ref}
       initial={{ opacity: 0, y: 30 }}
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '50px' }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
       className="relative overflow-hidden p-6 md:p-10 lg:p-12 rounded-[32px] bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 shadow-[inset_0_2px_4px_rgba(255,255,255,0.15),inset_0_-4px_8px_rgba(0,0,0,0.4),0_12px_30px_rgba(0,0,0,0.4)] group transition-all duration-500"
     >
       {/* Decorative Glowing Orbs */}
@@ -506,7 +494,8 @@ function AboutSection() {
             <motion.div 
               key={text} 
               initial={{ opacity: 0, x: 20 }}
-              animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.2 + (index * 0.1), ease: "easeOut" }}
               className="group/item flex items-center gap-4 p-3 md:p-4 rounded-[20px] bg-white/10 backdrop-blur-md border border-white/20 shadow-[inset_0_1px_2px_rgba(255,255,255,0.2),0_4px_12px_rgba(0,0,0,0.1)] hover:bg-white/20 hover:border-white/30 hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(0,0,0,0.2)] transition-all duration-300 cursor-default"
             >
@@ -586,12 +575,6 @@ export function HomePage() {
     .filter(acc => acc.status === 'Available')
     .slice(0, 8);
 
-  const accountGridRef = useRef(null);
-  const accountGridInView = useInView(accountGridRef, { once: true, margin: '0px' });
-
-  const testimonialRef = useRef(null);
-  const testimonialInView = useInView(testimonialRef, { once: true, margin: '0px' });
-
   return (
     <div className="flex flex-col gap-8 md:gap-10">
 
@@ -627,10 +610,10 @@ export function HomePage() {
         </div>
 
         <motion.div
-          ref={accountGridRef}
           variants={stagger}
           initial="hidden"
-          animate={accountGridInView ? 'show' : 'hidden'}
+          whileInView="show"
+          viewport={{ once: true, margin: '50px' }}
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4"
         >
           {latestAccounts.map((account) => (
@@ -669,10 +652,10 @@ export function HomePage() {
         </div>
 
         <motion.div
-          ref={testimonialRef}
           initial={{ opacity: 0 }}
-          animate={testimonialInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.8 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '50px' }}
+          transition={{ duration: 0.5 }}
           className="relative overflow-hidden -mx-4 md:mx-0 w-full flex"
           style={{ 
             WebkitMaskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent)', 
