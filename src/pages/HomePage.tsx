@@ -35,17 +35,17 @@ const WA_CADANGAN = '6289876543210';
 const WA_MESSAGE_TEMPLATE = 'Halo Farid Shop Game! 👋 Saya tertarik dengan akun yang dijual. Boleh saya tanya-tanya dulu?';
 
 // ─── Animation Variants ───────────────────────────────────────────────────────
-const fadeUp = {
+const fadeUp: any = {
   hidden: { opacity: 0, y: 20, filter: 'blur(4px)' },
   show:   { opacity: 1, y: 0, filter: 'blur(0px)', transition: { type: 'spring', stiffness: 200, damping: 24 } },
 };
 
-const stagger = {
+const stagger: any = {
   hidden: {},
   show: { transition: { staggerChildren: 0.05 } },
 };
 
-const staggerFast = {
+const staggerFast: any = {
   hidden: {},
   show: { transition: { staggerChildren: 0.03 } },
 };

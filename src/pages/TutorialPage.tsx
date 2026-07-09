@@ -18,7 +18,7 @@ import {
 import { cn } from '@lib/utils';
 
 // ─── Animation Variants ────────────────────────────────────────────────────────
-const fadeUp = {
+const fadeUp: any = {
   hidden: { opacity: 0, y: 20, filter: 'blur(4px)' },
   show: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { type: 'spring', stiffness: 200, damping: 24 } }
 };
