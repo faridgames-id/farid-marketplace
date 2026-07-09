@@ -7,7 +7,7 @@
 
 import { useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { AppLayout } from '@components/layout';
+import { AppLayout, PageTransition } from '@components/layout';
 
 // Lazy loaded pages for better performance on Android/mobile
 const HomePage      = lazy(() => import('@pages/HomePage').then(m => ({ default: m.HomePage })));
@@ -40,12 +40,12 @@ function App() {
           </div>
         }>
           <Routes>
-            <Route path="/"          element={<HomePage />}      />
-            <Route path="/catalog"   element={<CatalogPage />}   />
-            <Route path="/tutorial"  element={<TutorialPage />}  />
-            <Route path="/community" element={<CommunityPage />} />
-            <Route path="/about"     element={<AboutPage />}     />
-            <Route path="/admin"     element={<AdminPage />}     />
+            <Route path="/"          element={<PageTransition><HomePage /></PageTransition>}      />
+            <Route path="/catalog"   element={<PageTransition><CatalogPage /></PageTransition>}   />
+            <Route path="/tutorial"  element={<PageTransition><TutorialPage /></PageTransition>}  />
+            <Route path="/community" element={<PageTransition><CommunityPage /></PageTransition>} />
+            <Route path="/about"     element={<PageTransition><AboutPage /></PageTransition>}     />
+            <Route path="/admin"     element={<PageTransition><AdminPage /></PageTransition>}     />
             {/* Fallback — redirect unknown routes to home */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
