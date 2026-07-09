@@ -14,6 +14,8 @@ import { DatePicker } from '../components/ui/DatePicker';
 import { cn, formatRupiah } from '@lib/utils';
 import type { Account, GameType } from '../types/account';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { storage } from '../lib/firebase';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 const VISITOR_DATA = [
   { name: 'Senin', clicks: 400, visits: 500 },
@@ -50,6 +52,8 @@ export function AdminPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingAccount, setEditingAccount] = useState<Account | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [isSaving, setIsSaving] = useState(false);
   const [tableGameFilter, setTableGameFilter] = useState('Free Fire');
   const [tableStatusFilter, setTableStatusFilter] = useState('Ready');
 
@@ -180,47 +184,65 @@ export function AdminPage() {
   const openEditModal = (account: Account) => {
     setEditingAccount(account);
     setImagePreview(account.image);
+    setImageFile(null);
     setIsModalOpen(true);
   };
 
   const openAddModal = () => {
     setEditingAccount(null);
     setImagePreview(null);
+    setImageFile(null);
     setIsModalOpen(true);
   };
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
+      setImageFile(file);
       const url = URL.createObjectURL(file);
       setImagePreview(url);
     }
   };
 
-  const handleSave = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSave = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    const title = form.get('title') as string;
-    const game = form.get('game') as GameType;
-    const price = Number(form.get('price'));
-    const status = form.get('status') as 'Available' | 'Sold';
-    const dateInput = form.get('dateAdded') as string;
-    const badge = form.get('badge') as string;
-    const specs = form.get('specs') as string;
-    const image = imagePreview || 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=600&h=800';
+    setIsSaving(true);
+    
+    try {
+      const form = new FormData(e.currentTarget);
+      const title = form.get('title') as string;
+      const game = form.get('game') as GameType;
+      const price = Number(form.get('price'));
+      const status = form.get('status') as 'Available' | 'Sold';
+      const dateInput = form.get('dateAdded') as string;
+      const badge = form.get('badge') as string;
+      const specs = form.get('specs') as string;
+      let image = imagePreview || 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=600&h=800';
 
-    if (editingAccount) {
-      updateAccount(editingAccount.id, { title, game, price, status, image, dateAdded: dateInput, badge, specs });
-    } else {
-      const newAcc: Account = {
-        id: `ACC-00${accounts.length + 1}`,
-        game, title, price, status,
-        tier: 'Standard', image,
-        specs, badge, dateAdded: dateInput
-      };
-      addAccount(newAcc);
+      if (imageFile && storage) {
+        const storageRef = ref(storage, `accounts/${Date.now()}_${imageFile.name}`);
+        await uploadBytes(storageRef, imageFile);
+        image = await getDownloadURL(storageRef);
+      }
+
+      if (editingAccount) {
+        await updateAccount(editingAccount.id, { title, game, price, status, image, dateAdded: dateInput, badge, specs });
+      } else {
+        const newAcc: Account = {
+          id: `ACC-00${accounts.length + 1}`,
+          game, title, price, status,
+          tier: 'Standard', image,
+          specs, badge, dateAdded: dateInput
+        };
+        await addAccount(newAcc);
+      }
+      setIsModalOpen(false);
+    } catch (err) {
+      console.error("Error saving account:", err);
+      alert("Gagal menyimpan data akun. Pastikan koneksi dan rule Firebase benar.");
+    } finally {
+      setIsSaving(false);
     }
-    setIsModalOpen(false);
   };
 
   return (
@@ -673,8 +695,8 @@ export function AdminPage() {
                     <button type="button" onClick={() => setIsModalOpen(false)} className="flex-1 py-2.5 text-[13px] font-bold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-xl transition-colors">
                       Batal
                     </button>
-                    <button type="submit" className="flex-1 py-2.5 text-[13px] font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-md shadow-blue-500/20 transition-all active:scale-95">
-                      Simpan Data
+                    <button type="submit" disabled={isSaving} className="flex-1 py-2.5 text-[13px] font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-md shadow-blue-500/20 transition-all active:scale-95 disabled:opacity-50">
+                      {isSaving ? 'Menyimpan...' : 'Simpan Data'}
                     </button>
                   </div>
                 </form>
