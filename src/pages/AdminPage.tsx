@@ -217,7 +217,9 @@ export function AdminPage() {
       const dateInput = form.get('dateAdded') as string;
       const badge = form.get('badge') as string;
       const specs = form.get('specs') as string;
-      let image = imagePreview || 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=600&h=800';
+      const imageUrl = form.get('imageUrl') as string;
+      
+      let image = imageUrl || imagePreview || 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=600&h=800';
 
       if (imageFile && storage) {
         const storageRef = ref(storage, `accounts/${Date.now()}_${imageFile.name}`);
@@ -618,7 +620,7 @@ export function AdminPage() {
                     
                     <div>
                       <span className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Gambar Stok</span>
-                      <label className="relative border border-dashed border-slate-300 dark:border-slate-500 hover:border-blue-500/50 dark:hover:border-blue-500/50 rounded-xl p-2 transition-colors flex flex-col items-center justify-center group overflow-hidden bg-slate-50 dark:bg-slate-900/50 text-center min-h-[80px] cursor-pointer">
+                      <label className="relative border border-dashed border-slate-300 dark:border-slate-500 hover:border-blue-500/50 dark:hover:border-blue-500/50 rounded-xl p-2 transition-colors flex flex-col items-center justify-center group overflow-hidden bg-slate-50 dark:bg-slate-900/50 text-center min-h-[80px] cursor-pointer mb-2">
                         <input type="file" accept="image/*" onChange={handleImageUpload} className="hidden" />
                         {imagePreview ? (
                           <>
@@ -635,10 +637,17 @@ export function AdminPage() {
                               <UploadCloud size={16} />
                             </div>
                             <p className="text-[13px] font-bold text-slate-700 dark:text-slate-300">Klik atau seret gambar ke sini</p>
-                            <p className="text-[10px] text-slate-500">PNG, JPG, atau WEBP</p>
+                            <p className="text-[10px] text-slate-500">Jika error, pakai link URL di bawah</p>
                           </div>
                         )}
                       </label>
+                      <input 
+                        name="imageUrl" 
+                        type="url" 
+                        defaultValue={editingAccount?.image || ''} 
+                        placeholder="Atau tempel Link URL Gambar di sini (Imgur, dll)..." 
+                        className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900/50 border border-slate-300 dark:border-slate-500 rounded-xl text-[12px] focus:bg-white focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all text-slate-700 dark:text-slate-300"
+                      />
                     </div>
 
                     <div className="grid grid-cols-2 gap-3">
