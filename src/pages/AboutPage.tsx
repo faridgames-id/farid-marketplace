@@ -13,8 +13,8 @@ export function AboutPage() {
       
       {/* Restored Hero Section */}
       <motion.div 
-        initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
-        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ type: 'spring', stiffness: 180, damping: 22 }}
         className="bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 rounded-[32px] p-8 md:p-14 text-center text-white shadow-xl relative overflow-hidden"
       >
@@ -45,8 +45,8 @@ export function AboutPage() {
 
       {/* Card Section */}
       <motion.div 
-        initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
-        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1, type: 'spring', stiffness: 200, damping: 24 }}
         className="bg-white dark:bg-slate-900 rounded-[32px] p-6 md:p-10 border border-slate-200 dark:border-slate-800 shadow-lg mt-2 flex flex-col gap-6"
       >
@@ -77,7 +77,7 @@ export function AboutPage() {
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.03, type: 'spring', stiffness: 200, damping: 22 }}
                 whileHover={{ y: -4, transition: { type: 'spring', stiffness: 300, damping: 20 } }}

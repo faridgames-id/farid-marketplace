@@ -158,7 +158,7 @@ export function CommunityPage() {
 
       {/* ── BAGIAN 1: GRUP JB ────────────────────────────────────────────── */}
       <motion.section 
-         initial="hidden" animate="show"
+        variants={stagger} initial="hidden" animate="show"
         className="flex flex-col gap-5"
       >
         <div className="flex items-center gap-2.5 border-b-[1.5px] border-slate-900 pb-2.5">
@@ -187,7 +187,7 @@ export function CommunityPage() {
 
       {/* ── BAGIAN 2: SALURAN & SOSIAL MEDIA ─────────────────────────────── */}
       <motion.section 
-         initial="hidden" animate="show"
+        variants={stagger} initial="hidden" animate="show"
         className="flex flex-col gap-5 mt-2"
       >
         <div className="flex items-center gap-2.5 border-b-[1.5px] border-slate-900 pb-2.5">

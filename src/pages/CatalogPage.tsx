@@ -80,7 +80,7 @@ export function CatalogPage() {
       <motion.div
         variants={fadeUp}
         initial="hidden"
-        animate="show"
+        whileInView="show"
         viewport={{ once: true, margin: '50px' }}
         className="relative rounded-[32px] p-6 md:p-8 bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 shadow-xl flex flex-col gap-5 mb-2"
       >

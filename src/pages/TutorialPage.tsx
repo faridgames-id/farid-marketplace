@@ -213,7 +213,7 @@ export function TutorialPage() {
               <motion.div 
                 key={idx}
                 initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.03, type: 'spring', stiffness: 200, damping: 22 }}
                 className="bg-white dark:bg-slate-900 rounded-3xl p-5 pt-7 border-2 border-slate-100 dark:border-slate-800 shadow-lg hover:border-blue-200 hover:shadow-lg transition-all flex flex-col items-center text-center relative group"
@@ -257,8 +257,8 @@ export function TutorialPage() {
                 return (
                   <motion.div 
                     key={idx}
-                    initial={{ opacity: 0, x: -16, filter: 'blur(4px)' }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, x: -16 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: '0px' }}
                     transition={{ delay: idx * 0.03, type: 'spring', stiffness: 200, damping: 22 }}
                     className="flex items-start gap-5"

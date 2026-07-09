@@ -80,7 +80,7 @@ function HeroSection() {
 
         {/* ── Left: Identity & CTA ──────────────────── */}
         <motion.div
-          
+          variants={stagger}
           initial="hidden"
           animate="show"
           className="flex flex-col items-center md:items-start gap-5 md:max-w-lg"
@@ -216,9 +216,9 @@ const TRUST_STATS = [
 function TrustStats() {
   return (
     <motion.div
-      
+      variants={staggerFast}
       initial="hidden"
-      animate="show"
+      whileInView="show"
       viewport={{ once: true, margin: '50px' }}
       className="grid grid-cols-2 md:grid-cols-4 gap-3"
     >
@@ -259,9 +259,9 @@ function TrustStatsSimple() {
 
   return (
     <motion.section
-      
+      variants={staggerFast}
       initial="hidden"
-      animate="show"
+      whileInView="show"
       viewport={{ once: true, margin: '50px' }}
       className="flex flex-col gap-4"
     >
@@ -345,9 +345,9 @@ function WhatsAppSection() {
   return (
     <motion.section
       initial="hidden"
-      animate="show"
+      whileInView="show"
       viewport={{ once: true, margin: '50px' }}
-      
+      variants={stagger}
       className="flex flex-col gap-4"
     >
       <motion.div variants={fadeUp} className="flex items-center gap-2">
@@ -456,7 +456,7 @@ function AboutSection() {
   return (
     <motion.section
       initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '50px' }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
       className="relative overflow-hidden p-6 md:p-10 lg:p-12 rounded-[32px] bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 shadow-xl group transition-all duration-500"
@@ -494,7 +494,7 @@ function AboutSection() {
             <motion.div 
               key={text} 
               initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.2 + (index * 0.1), ease: "easeOut" }}
               className="group/item flex items-center gap-4 p-3 md:p-4 rounded-[20px] bg-white/10  border border-white/20 shadow-xl hover:bg-white/20 hover:border-white/30 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-default"
@@ -610,9 +610,9 @@ export function HomePage() {
         </div>
 
         <motion.div
-          
+          variants={stagger}
           initial="hidden"
-          animate="show"
+          whileInView="show"
           viewport={{ once: true, margin: '50px' }}
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4"
         >
@@ -653,7 +653,7 @@ export function HomePage() {
 
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: '50px' }}
           transition={{ duration: 0.5 }}
           className="relative overflow-hidden -mx-4 md:mx-0 w-full flex"
@@ -688,7 +688,7 @@ export function HomePage() {
       <motion.section
         className="relative overflow-hidden p-8 md:p-14 text-center rounded-3xl bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 shadow-xl"
         initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '0px' }}
         transition={{ duration: 0.5 }}
       >
