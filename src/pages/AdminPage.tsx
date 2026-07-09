@@ -217,7 +217,15 @@ export function AdminPage() {
       const dateInput = form.get('dateAdded') as string;
       const badge = form.get('badge') as string;
       const specs = form.get('specs') as string;
-      const imageUrl = form.get('imageUrl') as string;
+      let imageUrl = form.get('imageUrl') as string;
+      
+      // Auto-extract from HTML/BBCode if user pasted the whole text block
+      if (imageUrl) {
+        const imgMatch = imageUrl.match(/src="([^"]+)"/);
+        const bbcodeMatch = imageUrl.match(/\[img\](.*?)\[\/img\]/i);
+        if (imgMatch) imageUrl = imgMatch[1];
+        else if (bbcodeMatch) imageUrl = bbcodeMatch[1];
+      }
       
       let image = imageUrl || imagePreview || 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=600&h=800';
 
