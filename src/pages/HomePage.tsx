@@ -30,7 +30,7 @@ import type { Account } from '../types/account';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 const WA_UTAMA    = '6287814897713';
-const WA_CADANGAN = '6289876543210';
+const WA_CADANGAN = '6285741257176';
 const WA_MESSAGE_TEMPLATE = 'Halo Farid Shop Game! 👋 Saya tertarik dengan akun yang dijual. Boleh saya tanya-tanya dulu?';
 
 // ─── Animation Variants ───────────────────────────────────────────────────────
