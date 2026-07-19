@@ -52,9 +52,14 @@ export function AboutPage() {
         </div>
         
         <div className="relative z-10 flex flex-col items-center gap-5">
-          <div className="w-16 h-16 bg-gradient-to-b from-blue-500 to-blue-700 border border-blue-400/30 rounded-[18px] flex items-center justify-center shadow-sm">
+          <motion.div 
+            initial={{ scale: 0, rotate: -30 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ type: "spring", stiffness: 350, damping: 20, delay: 0.1 }}
+            className="w-16 h-16 bg-gradient-to-b from-blue-500 to-blue-700 border border-blue-400/30 rounded-[18px] flex items-center justify-center shadow-sm"
+          >
             <Info size={32} className="text-white " strokeWidth={2.5} />
-          </div>
+          </motion.div>
           <div className="space-y-3">
             <h1 className="font-display text-3xl md:text-4xl font-black tracking-tight text-white">
               Tentang{' '}
@@ -123,7 +128,7 @@ export function AboutPage() {
                   <Minus className="absolute top-12 right-1/4 w-5 h-5 -rotate-45 group-hover:rotate-0 transition-all duration-700 ease-out" strokeWidth={3} />
                   <Activity className="absolute bottom-1/4 left-1/4 w-7 h-7 rotate-12 group-hover:-translate-x-2 transition-all duration-700 ease-out" strokeWidth={2} />
                 </div>
-                <div className="relative z-10 w-16 h-16 rounded-[20px] bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center text-white mx-auto mb-6 shadow-[0_8px_16px_rgba(0,0,0,0.1)] group-hover:scale-110 group-hover:-translate-y-2 group-hover:rotate-3 group-hover:bg-white/30 transition-all duration-500">
+                <div className="relative z-10 w-16 h-16 rounded-[20px] bg-gradient-to-br from-blue-400 to-blue-600 border border-blue-300/50 flex items-center justify-center text-white mx-auto mb-6 shadow-md group-hover:scale-110 group-hover:-translate-y-2 group-hover:rotate-3 transition-all duration-500">
                   <motion.div animate={{ y: [0, -4, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: idx * 0.2 }}>
                     <Icon size={30} strokeWidth={2.5} className="drop-shadow-sm" />
                   </motion.div>

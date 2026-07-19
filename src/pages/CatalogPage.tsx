@@ -136,9 +136,12 @@ export function CatalogPage() {
               initial={{ scale: 0, rotate: -30 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{ type: "spring", stiffness: 350, damping: 20, delay: 0.1 }}
-              className="w-10 h-10 md:w-12 md:h-12 rounded-[14px] bg-gradient-to-br from-blue-400 to-blue-600 border border-blue-300/50 flex items-center justify-center flex-shrink-0 shadow-[0_4px_12px_rgba(37,99,235,0.4)]"
+              className="relative"
             >
-              <Package className="w-5 h-5 md:w-6 md:h-6 text-white" strokeWidth={2.5} />
+              <div className="absolute inset-0 bg-blue-500/40 rounded-full" />
+              <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-[14px] bg-gradient-to-b from-blue-500 to-blue-700 border border-blue-400/30 flex items-center justify-center flex-shrink-0 shadow-sm">
+                <Package className="w-5 h-5 md:w-6 md:h-6 text-white" strokeWidth={2.5} />
+              </div>
             </motion.div>
             Katalog Akun
           </h1>
@@ -232,15 +235,25 @@ export function CatalogPage() {
                 type="button"
                 onClick={() => setActiveFilter(chip)}
                 className={cn(
-                  'flex-shrink-0 px-4 h-9 rounded-full text-xs font-semibold  border',
-                  'transition-all duration-200 active:scale-95',
+                  'relative flex-shrink-0 px-4 h-9 rounded-full text-xs font-semibold border-none',
+                  'transition-all duration-200 active:scale-95 z-10 overflow-hidden',
                   isActive
-                    ? 'text-blue-900 bg-white border-white/80 shadow-sm'
-                    : 'bg-white/10 text-white/80 border-white/20 hover:bg-white/20 hover:text-white shadow-sm'
+                    ? 'text-blue-900 shadow-sm'
+                    : 'text-white/80 hover:text-white'
                 )}
                 whileTap={{ scale: 0.94 }}
               >
-                {chip}
+                {isActive && (
+                  <motion.div
+                    layoutId="activeGameFilter"
+                    className="absolute inset-0 bg-white rounded-full z-0"
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
+                {!isActive && (
+                  <div className="absolute inset-0 bg-white/10 border border-white/20 rounded-full z-0 hover:bg-white/20 transition-colors" />
+                )}
+                <span className="relative z-10">{chip}</span>
               </motion.button>
             );
           })}

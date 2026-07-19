@@ -171,7 +171,7 @@ function HeroSection() {
 
         {/* ── Right: Game Preview Visual ────────────── */}
         <motion.div
-          className="flex-1 relative mt-2 md:mt-0 w-full flex justify-end"
+          className="flex-1 relative mt-2 md:mt-0 w-full flex justify-center md:justify-end"
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -829,24 +829,28 @@ export function HomePage() {
               Temukan akun game impian kamu dari ratusan pilihan premium. Harga terjangkau, kualitas dijamin.
             </p>
           </div>
-          <div className="flex flex-wrap gap-3 justify-center">
-            <Link
-              to="/catalog"
-              onClick={() => useAnalyticsStore.getState().recordClick()}
-              id="home-final-cta-catalog"
-              className="inline-flex items-center gap-2 text-sm py-3 px-7 bg-white text-blue-700 font-bold rounded-2xl hover:bg-blue-50 transition-colors shadow-sm"
-            >
-              <Sparkles size={16} />
-              Cari Akun Sekarang
-            </Link>
-            <Link
-              to="/community"
-              id="home-final-cta-community"
-              className="inline-flex items-center gap-2 text-sm py-3 px-6 bg-white/10 text-white font-bold rounded-2xl border border-white/20 hover:bg-white/20 transition-colors"
-            >
-              <Users size={16} />
-              Gabung Komunitas
-            </Link>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.92, rotate: -2 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
+              <Link
+                to="/catalog"
+                onClick={() => useAnalyticsStore.getState().recordClick()}
+                id="home-final-cta-catalog"
+                className="inline-flex items-center gap-2 text-sm py-3.5 px-8 bg-white text-blue-700 font-bold rounded-2xl hover:bg-blue-50 transition-colors shadow-lg"
+              >
+                <Sparkles size={18} />
+                Cari Akun Sekarang
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.92, rotate: 2 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
+              <Link
+                to="/community"
+                id="home-final-cta-community"
+                className="inline-flex items-center gap-2 text-sm py-3.5 px-7 bg-white/10 text-white font-bold rounded-2xl border border-white/20 hover:bg-white/20 transition-colors shadow-lg backdrop-blur-sm"
+              >
+                <Users size={18} />
+                Gabung Komunitas
+              </Link>
+            </motion.div>
           </div>
         </div>
       </motion.section>

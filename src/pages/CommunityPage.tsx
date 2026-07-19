@@ -174,9 +174,14 @@ export function CommunityPage() {
         </div>
         
         <div className="relative z-10 flex flex-col items-center gap-5">
-          <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 border border-blue-400/30 rounded-[20px] flex items-center justify-center shadow-sm">
+          <motion.div 
+            initial={{ scale: 0, rotate: -30 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ type: "spring", stiffness: 350, damping: 20, delay: 0.1 }}
+            className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 border border-blue-400/30 rounded-[20px] flex items-center justify-center shadow-sm"
+          >
             <Users size={32} className="text-white " />
-          </div>
+          </motion.div>
           
           <div className="space-y-3">
             <h1 className="font-display text-3xl md:text-5xl font-black tracking-tight leading-tight">
