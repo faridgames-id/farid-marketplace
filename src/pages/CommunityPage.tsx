@@ -16,7 +16,8 @@ import { motion } from 'framer-motion';
 import { 
   Users, MessageCircle, Gamepad2, Megaphone, 
   Camera, MonitorPlay, ExternalLink, ShieldCheck,
-  BellRing, Image as ImageIcon, Send, Sparkles, ChevronRight
+  BellRing, Image as ImageIcon, Send, Sparkles, ChevronRight,
+  Triangle, Circle, Square, X, Minus, Activity
 } from 'lucide-react';
 import { cn } from '@lib/utils';
 
@@ -79,9 +80,8 @@ function UnifiedCard({
       whileHover="hover"
       animate="rest"
       className={cn(
-        "group relative flex items-center justify-between p-5 rounded-[24px] border border-white/20 shadow-sm overflow-hidden",
-        "shadow-sm",
-        "transition-all duration-300",
+        "group relative flex items-center justify-between p-6 sm:p-7 rounded-[28px] border border-white/20 shadow-[0_8px_20px_rgba(0,0,0,0.1)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.2)] overflow-hidden",
+        "transition-all duration-500 hover:-translate-y-1",
         bg
       )}
       whileTap={{ scale: 0.98 }}
@@ -92,28 +92,38 @@ function UnifiedCard({
         "absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none bg-white", 
       )} />
 
+      {/* Unique Motifs */}
+      <div className="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700 pointer-events-none" />
+      <div className="absolute -left-6 -bottom-6 w-20 h-20 bg-white/10 rounded-full blur-xl group-hover:scale-150 transition-transform duration-700 pointer-events-none" />
+      
+      {/* Geometric Interactive Motifs */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 border border-white/5 rounded-full scale-50 opacity-0 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700 pointer-events-none" />
+      <div className="absolute top-8 right-24 w-2.5 h-2.5 border-[1.5px] border-white/30 rotate-45 group-hover:rotate-180 group-hover:scale-125 transition-all duration-700 pointer-events-none" />
+      <div className="absolute bottom-6 left-1/3 w-1.5 h-1.5 bg-white/40 rounded-full group-hover:animate-ping pointer-events-none" style={{ animationDuration: '2s' }} />
+
       <div className="flex items-center gap-4 relative z-10 w-full min-w-0">
         <motion.div 
           variants={iconVariants} 
-          className={cn('w-14 h-14 rounded-[18px] flex items-center justify-center flex-shrink-0 shadow-sm border border-white/30', bg, color)}
+          className={cn('w-14 h-14 md:w-16 md:h-16 rounded-[18px] md:rounded-[20px] flex items-center justify-center flex-shrink-0 shadow-inner border border-white/30 relative overflow-hidden', bg, color)}
         >
-          <Icon size={24} strokeWidth={2.2} />
+          <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+          <Icon size={26} strokeWidth={2.2} className="relative z-10 drop-shadow-md" />
         </motion.div>
         
         <div className="flex-1 min-w-0 pr-2">
-          <h3 className="font-bold text-white text-[15px] leading-tight truncate group-hover:text-white/90 transition-colors ">{title}</h3>
-          <p className="text-[13px] text-white/80 font-medium mt-1 truncate ">{subtitle}</p>
+          <h3 className="font-bold text-white text-[16px] md:text-[18px] leading-tight truncate group-hover:text-white/90 transition-colors drop-shadow-sm">{title}</h3>
+          <p className="text-[13px] md:text-[14px] text-white/80 font-medium mt-1 truncate drop-shadow-sm">{subtitle}</p>
         </div>
       </div>
       
       <motion.div 
         variants={arrowVariants} 
         className={cn(
-          "w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 relative z-10 shadow-sm transition-colors ",
-          "bg-white/20 text-white border border-white/30 group-hover:bg-white/30"
+          "w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 relative z-10 shadow-sm transition-colors ",
+          "bg-white/20 text-white border border-white/30 group-hover:bg-white"
         )}
       >
-        {type === 'internal' ? <ChevronRight size={18} /> : <ExternalLink size={16} />}
+        {type === 'internal' ? <ChevronRight size={18} className="group-hover:text-blue-600 transition-colors" /> : <ExternalLink size={16} className="group-hover:text-blue-600 transition-colors" />}
       </motion.div>
     </motion.a>
   );
@@ -128,10 +138,40 @@ export function CommunityPage() {
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 rounded-[32px] p-8 md:p-14 text-center text-white shadow-sm relative overflow-hidden"
+        className="bg-gradient-to-br from-blue-600 via-blue-800 to-[#0a1a3a] border border-white/10 rounded-[40px] p-8 md:p-14 text-center text-white shadow-[0_10px_30px_rgba(0,0,0,0.2)] relative overflow-hidden group"
       >
-        <div className="absolute top-0 right-0 -translate-y-1/3 translate-x-1/3 w-[300px] h-[300px] bg-blue-500/30 rounded-full " />
-        <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-[250px] h-[250px] bg-purple-500/20 rounded-full " />
+        {/* Decorative Memphis Geometric Motif */}
+        <div className="absolute inset-0 pointer-events-none z-0">
+          <div className="absolute top-0 right-0 -translate-y-1/3 translate-x-1/3 w-[300px] h-[300px] bg-blue-500/30 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-[250px] h-[250px] bg-purple-500/20 rounded-full blur-2xl" />
+          
+          {/* Memphis Pattern Container */}
+          <div className="absolute inset-0 opacity-[0.25] text-white">
+            {/* Top Right Cluster */}
+            <Triangle className="absolute top-6 right-4 md:right-20 w-6 h-6 md:w-8 md:h-8 -rotate-12 transition-transform duration-700 ease-out group-hover:rotate-12 group-hover:scale-110 group-hover:-translate-x-2 group-hover:translate-y-2" strokeWidth={2.5} />
+            <Circle className="absolute top-16 right-16 md:right-40 w-4 h-4 md:w-5 md:h-5 transition-transform duration-500 ease-out delay-75 group-hover:scale-125 hidden md:block" strokeWidth={3} />
+            <Square className="absolute top-8 right-28 md:right-56 w-5 h-5 md:w-6 md:h-6 rotate-12 transition-transform duration-700 ease-out group-hover:rotate-45 hidden md:block" strokeWidth={2.5} />
+            <X className="absolute top-24 right-8 md:right-10 w-5 h-5 md:w-6 md:h-6 transition-transform duration-300 ease-out group-hover:rotate-90 group-hover:scale-110" strokeWidth={3} />
+            <Activity className="absolute top-28 right-20 md:right-32 w-8 h-8 md:w-10 md:h-10 rotate-12 transition-transform duration-700 ease-out group-hover:-translate-x-4 hidden md:block" strokeWidth={2} />
+            <Minus className="absolute top-10 right-1/2 md:right-8 w-6 h-6 md:w-8 md:h-8 rotate-45 transition-transform duration-500 ease-out group-hover:-translate-y-2" strokeWidth={3} />
+            
+            {/* Center / Top Left Area */}
+            <Circle className="absolute top-8 left-1/4 md:left-1/3 w-2 h-2 md:w-3 md:h-3 fill-current transition-all duration-300 group-hover:scale-150 hidden md:block" />
+            <X className="absolute top-20 left-8 md:left-1/4 w-4 h-4 md:w-5 md:h-5 rotate-45 transition-all duration-500 group-hover:rotate-[135deg] hidden md:block" strokeWidth={3} />
+            <Triangle className="absolute -top-4 left-12 md:left-40 w-5 h-5 md:w-6 md:h-6 rotate-[60deg] transition-all duration-700 group-hover:translate-x-2 group-hover:translate-y-2" strokeWidth={2.5} />
+            
+            {/* Bottom Left Cluster */}
+            <Square className="absolute bottom-10 left-4 md:left-12 w-6 h-6 md:w-8 md:h-8 -rotate-12 transition-transform duration-700 ease-out group-hover:rotate-12 group-hover:translate-x-2 group-hover:-translate-y-2" strokeWidth={2.5} />
+            <Activity className="absolute bottom-6 left-20 md:left-32 w-8 h-8 md:w-10 md:h-10 -rotate-12 transition-transform duration-700 ease-out group-hover:translate-x-4 hidden md:block" strokeWidth={2} />
+            <Circle className="absolute bottom-20 left-16 md:left-24 w-3 h-3 md:w-4 md:h-4 transition-transform duration-500 ease-out delay-100 group-hover:scale-125 hidden md:block" strokeWidth={3} />
+            <X className="absolute bottom-12 left-4 md:left-4 w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 ease-out group-hover:rotate-90 group-hover:scale-110" strokeWidth={3} />
+            <Minus className="absolute bottom-24 left-1/3 md:left-10 w-6 h-6 md:w-8 md:h-8 -rotate-45 transition-transform duration-500 ease-out group-hover:-translate-x-2 hidden md:block" strokeWidth={3} />
+            
+            {/* Bottom Right Area */}
+            <Triangle className="absolute bottom-8 right-20 md:right-1/4 w-5 h-5 md:w-7 md:h-7 rotate-[180deg] transition-all duration-700 group-hover:translate-x-2 group-hover:-translate-y-2 hidden md:block" strokeWidth={2.5} />
+            <Circle className="absolute bottom-16 right-12 md:right-1/3 w-2 h-2 md:w-3 md:h-3 fill-current transition-all duration-300 group-hover:scale-150 hidden md:block" />
+          </div>
+        </div>
         
         <div className="relative z-10 flex flex-col items-center gap-5">
           <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 border border-blue-400/30 rounded-[20px] flex items-center justify-center shadow-sm">

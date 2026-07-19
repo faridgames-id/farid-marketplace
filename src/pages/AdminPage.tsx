@@ -318,13 +318,15 @@ export function AdminPage() {
           </div>
           
           <div className="hidden md:flex gap-4">
-            <div className="flex flex-col justify-center bg-white/10  border border-white/20 rounded-2xl p-5 min-w-[140px] transform hover:-translate-y-1 transition-all duration-300 shadow-sm">
-              <span className="text-blue-100 text-xs font-bold uppercase tracking-wider mb-2">Total Akun</span>
-              <div className="text-3xl font-black text-white ">{totalAccounts}</div>
+            <div className="relative overflow-hidden flex flex-col justify-center bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-md border border-white/30 rounded-[20px] p-5 min-w-[140px] transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300 shadow-sm group">
+              <div className="absolute top-0 right-0 w-16 h-16 bg-white/10 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500 pointer-events-none" />
+              <span className="relative z-10 text-blue-100 text-xs font-bold uppercase tracking-wider mb-2 drop-shadow-sm">Total Akun</span>
+              <div className="relative z-10 text-3xl font-black text-white drop-shadow-sm">{totalAccounts}</div>
             </div>
-            <div className="flex flex-col justify-center bg-white/10  border border-white/20 rounded-2xl p-5 min-w-[140px] transform hover:-translate-y-1 transition-all duration-300 shadow-sm">
-              <span className="text-blue-100 text-xs font-bold uppercase tracking-wider mb-2">Terjual</span>
-              <div className="text-3xl font-black text-white ">{soldAccounts}</div>
+            <div className="relative overflow-hidden flex flex-col justify-center bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-md border border-white/30 rounded-[20px] p-5 min-w-[140px] transform hover:-translate-y-1 hover:shadow-lg transition-all duration-300 shadow-sm group">
+              <div className="absolute top-0 right-0 w-16 h-16 bg-white/10 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500 pointer-events-none" />
+              <span className="relative z-10 text-blue-100 text-xs font-bold uppercase tracking-wider mb-2 drop-shadow-sm">Terjual</span>
+              <div className="relative z-10 text-3xl font-black text-white drop-shadow-sm">{soldAccounts}</div>
             </div>
           </div>
         </div>
@@ -811,21 +813,27 @@ export function AdminPage() {
 function StatCard({ title, value, icon: Icon, gradient, shadowColor, isCurrency = false }: any) {
   return (
     <motion.div 
-      whileHover={{ y: -4, transition: { type: 'spring', stiffness: 300, damping: 20 } }}
+      whileHover={{ y: -6, transition: { type: 'spring', stiffness: 300, damping: 20 } }}
       className={cn(
-        "relative p-4 md:p-5 rounded-[20px] border border-white/20 flex flex-col gap-3 overflow-hidden text-white cursor-default",
-        "bg-gradient-to-br", gradient,
-        "shadow-sm"
+        "group relative p-5 md:p-6 min-h-[140px] md:min-h-[150px] rounded-[24px] border border-white/20 flex flex-col justify-between gap-2 overflow-hidden text-white cursor-default",
+        "bg-gradient-to-br transition-shadow duration-500", 
+        gradient,
+        "shadow-md hover:shadow-2xl", shadowColor
       )}>
-      {/* Decorative Blur */}
-      <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-24 h-24 bg-white/20 rounded-full  pointer-events-none" />
+      {/* Decorative Bubble Motifs */}
+      <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-32 h-32 bg-white/10 rounded-full blur-xl group-hover:scale-125 transition-transform duration-700 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-24 h-24 bg-white/20 rounded-full blur-lg group-hover:scale-150 transition-transform duration-700 pointer-events-none" />
       
-      <div className="w-10 h-10 rounded-xl bg-white/20  border border-white/20 flex items-center justify-center flex-shrink-0 relative z-10 shadow-sm">
-        <Icon size={20} strokeWidth={2.5} className="text-white " />
+      {/* Tiny interactive floating bubbles */}
+      <div className="absolute top-1/4 right-1/4 w-3 h-3 border border-white/30 rounded-full opacity-0 group-hover:opacity-100 group-hover:-translate-y-6 group-hover:scale-150 transition-all duration-700 pointer-events-none" />
+      <div className="absolute bottom-1/4 right-8 w-1.5 h-1.5 bg-white/50 rounded-full opacity-0 group-hover:opacity-100 group-hover:-translate-y-8 transition-all duration-1000 pointer-events-none" />
+
+      <div className="w-12 h-12 rounded-2xl bg-white/20 border border-white/20 flex items-center justify-center flex-shrink-0 relative z-10 shadow-inner group-hover:bg-white/30 transition-colors duration-500">
+        <Icon size={24} strokeWidth={2.2} className="text-white drop-shadow-sm" />
       </div>
-      <div className="relative z-10">
-        <p className="text-xs font-medium text-white/90  tracking-wide">{title}</p>
-        <p className={cn("font-display font-black text-white  tracking-tight", isCurrency ? "text-[16px] sm:text-lg md:text-xl truncate" : "text-2xl md:text-3xl mt-0.5")}>
+      <div className="relative z-10 mt-2">
+        <p className="text-[13px] md:text-sm font-bold text-white/90 tracking-wide drop-shadow-sm">{title}</p>
+        <p className={cn("font-display font-black text-white tracking-tight drop-shadow-md", isCurrency ? "text-xl sm:text-2xl truncate mt-0.5" : "text-3xl md:text-4xl mt-0.5")}>
           {value}
         </p>
       </div>

@@ -13,7 +13,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ShieldCheck, ArrowDown, Wallet, Handshake,
   KeyRound, Mail, Smartphone, MonitorOff, CheckCircle,
-  Search, MessageCircle, CreditCard, UserCheck
+  Search, MessageCircle, CreditCard, UserCheck,
+  Triangle, Circle, Square, X, Minus, Activity
 } from 'lucide-react';
 import { cn } from '@lib/utils';
 
@@ -153,17 +154,42 @@ export function TutorialPage() {
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-gradient-to-br from-blue-900 via-[#1e3a8a] to-[#0a1a35] border-t border-white/10 rounded-[32px] p-8 md:p-14 text-center text-white shadow-sm relative overflow-hidden"
+        className="bg-gradient-to-br from-blue-600 via-blue-800 to-[#0a1a3a] border border-white/10 rounded-[40px] p-8 md:p-14 text-center text-white shadow-[0_10px_30px_rgba(0,0,0,0.2)] relative overflow-hidden group"
       >
-        {/* Glowing Orbs */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-500/30 rounded-full  pointer-events-none" />
-        <div className="absolute bottom-0 right-0 translate-x-1/3 translate-y-1/3 w-[200px] h-[200px] bg-sky-400/20 rounded-full  pointer-events-none" />
+        {/* Decorative Memphis Geometric Motif */}
+        <div className="absolute inset-0 pointer-events-none z-0">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-500/30 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-0 translate-x-1/3 translate-y-1/3 w-[200px] h-[200px] bg-sky-400/20 rounded-full blur-2xl" />
+          
+          {/* Memphis Pattern Container */}
+          <div className="absolute inset-0 opacity-[0.25] text-white">
+            {/* Top Right Cluster */}
+            <Triangle className="absolute top-6 right-4 md:right-20 w-6 h-6 md:w-8 md:h-8 -rotate-12 transition-transform duration-700 ease-out group-hover:rotate-12 group-hover:scale-110 group-hover:-translate-x-2 group-hover:translate-y-2" strokeWidth={2.5} />
+            <Circle className="absolute top-16 right-16 md:right-40 w-4 h-4 md:w-5 md:h-5 transition-transform duration-500 ease-out delay-75 group-hover:scale-125 hidden md:block" strokeWidth={3} />
+            <Square className="absolute top-8 right-28 md:right-56 w-5 h-5 md:w-6 md:h-6 rotate-12 transition-transform duration-700 ease-out group-hover:rotate-45 hidden md:block" strokeWidth={2.5} />
+            <X className="absolute top-24 right-8 md:right-10 w-5 h-5 md:w-6 md:h-6 transition-transform duration-300 ease-out group-hover:rotate-90 group-hover:scale-110" strokeWidth={3} />
+            <Activity className="absolute top-28 right-20 md:right-32 w-8 h-8 md:w-10 md:h-10 rotate-12 transition-transform duration-700 ease-out group-hover:-translate-x-4 hidden md:block" strokeWidth={2} />
+            <Minus className="absolute top-10 right-1/2 md:right-8 w-6 h-6 md:w-8 md:h-8 rotate-45 transition-transform duration-500 ease-out group-hover:-translate-y-2" strokeWidth={3} />
+            
+            {/* Center / Top Left Area */}
+            <Circle className="absolute top-8 left-1/4 md:left-1/3 w-2 h-2 md:w-3 md:h-3 fill-current transition-all duration-300 group-hover:scale-150 hidden md:block" />
+            <X className="absolute top-20 left-8 md:left-1/4 w-4 h-4 md:w-5 md:h-5 rotate-45 transition-all duration-500 group-hover:rotate-[135deg] hidden md:block" strokeWidth={3} />
+            <Triangle className="absolute -top-4 left-12 md:left-40 w-5 h-5 md:w-6 md:h-6 rotate-[60deg] transition-all duration-700 group-hover:translate-x-2 group-hover:translate-y-2" strokeWidth={2.5} />
+            
+            {/* Bottom Left Cluster */}
+            <Square className="absolute bottom-10 left-4 md:left-12 w-6 h-6 md:w-8 md:h-8 -rotate-12 transition-transform duration-700 ease-out group-hover:rotate-12 group-hover:translate-x-2 group-hover:-translate-y-2" strokeWidth={2.5} />
+            <Activity className="absolute bottom-6 left-20 md:left-32 w-8 h-8 md:w-10 md:h-10 -rotate-12 transition-transform duration-700 ease-out group-hover:translate-x-4 hidden md:block" strokeWidth={2} />
+            <Circle className="absolute bottom-20 left-16 md:left-24 w-3 h-3 md:w-4 md:h-4 transition-transform duration-500 ease-out delay-100 group-hover:scale-125 hidden md:block" strokeWidth={3} />
+            <X className="absolute bottom-12 left-4 md:left-4 w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 ease-out group-hover:rotate-90 group-hover:scale-110" strokeWidth={3} />
+            <Minus className="absolute bottom-24 left-1/3 md:left-10 w-6 h-6 md:w-8 md:h-8 -rotate-45 transition-transform duration-500 ease-out group-hover:-translate-x-2 hidden md:block" strokeWidth={3} />
+            
+            {/* Bottom Right Area */}
+            <Triangle className="absolute bottom-8 right-20 md:right-1/4 w-5 h-5 md:w-7 md:h-7 rotate-[180deg] transition-all duration-700 group-hover:translate-x-2 group-hover:-translate-y-2 hidden md:block" strokeWidth={2.5} />
+            <Circle className="absolute bottom-16 right-12 md:right-1/3 w-2 h-2 md:w-3 md:h-3 fill-current transition-all duration-300 group-hover:scale-150 hidden md:block" />
+          </div>
+        </div>
         
-        {/* Subtle Grid Pattern with Mask */}
-        <div 
-          className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"
-          style={{ maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)', WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)' }}
-        />
+
         
         <div className="relative z-10 flex flex-col items-center gap-5">
           <motion.div 
@@ -212,24 +238,46 @@ export function TutorialPage() {
             return (
               <motion.div 
                 key={idx}
-                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                initial={{ opacity: 0, y: 40, scale: 0.9 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.03, type: 'spring', stiffness: 200, damping: 22 }}
-                className="bg-white dark:bg-slate-900 rounded-3xl p-5 pt-7 border-2 border-slate-100 dark:border-slate-800 shadow-sm hover:border-blue-200 hover:shadow-sm transition-all flex flex-col items-center text-center relative group"
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: idx * 0.1, type: 'spring', stiffness: 200, damping: 20 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="relative group pt-3 h-full"
               >
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-900 dark:bg-white text-white dark:text-blue-950 text-[10px] font-black px-3 py-1 rounded-full shadow-md z-10 whitespace-nowrap">
+                {/* The Badge */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-700 to-blue-400 text-white text-[10px] font-black px-4 py-1.5 rounded-full shadow-lg z-20 whitespace-nowrap transform group-hover:-translate-y-1 group-hover:shadow-blue-500/30 transition-all duration-300">
                   LANGKAH 0{idx + 1}
                 </div>
-                <div className={cn('w-14 h-14 rounded-2xl flex items-center justify-center text-white mb-4 transition-transform group-hover:scale-110', step.color)}>
-                  <Icon size={24} strokeWidth={2.5} />
+
+                {/* The Card Body */}
+                <div className="bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-3xl p-5 pt-8 border-2 border-slate-100 dark:border-slate-700 shadow-md hover:shadow-xl hover:border-blue-300 dark:hover:border-blue-500 transition-all duration-300 flex flex-col items-center text-center relative overflow-hidden h-full">
+                  
+                  {/* Background Motif for Card */}
+                  <div className="absolute -right-6 -top-6 w-24 h-24 bg-gradient-to-br from-blue-200 to-transparent dark:from-blue-900/40 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+                  <div className="absolute -left-6 -bottom-6 w-20 h-20 bg-gradient-to-tr from-sky-200 to-transparent dark:from-sky-900/40 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+                  
+                  {/* Geometric motif shapes inside card */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    <div className="absolute top-8 right-4 w-2 h-2 rounded-full border-[1.5px] border-blue-400/60 scale-50 group-hover:scale-100 transition-transform duration-500 delay-100"></div>
+                    <div className="absolute bottom-12 left-4 w-2.5 h-2.5 border-[1.5px] border-sky-400/60 rotate-0 group-hover:rotate-45 transition-transform duration-700 delay-100"></div>
+                    <div className="absolute top-1/2 right-3 text-blue-400/40 text-sm font-black rotate-0 group-hover:rotate-90 transition-transform duration-500">+</div>
+                    <div className="absolute bottom-6 right-6 w-1.5 h-1.5 bg-cyan-400/40 rounded-full animate-ping" style={{ animationDuration: '3s' }}></div>
+                  </div>
+
+                  {/* Icon Container with pop effect */}
+                  <div className={cn('relative w-14 h-14 rounded-2xl flex items-center justify-center text-white mb-4 transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6 shadow-inner z-10', step.color)}>
+                    <div className="absolute inset-0 bg-white/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity blur-[2px]"></div>
+                    <Icon size={26} strokeWidth={2.5} className="relative z-10 drop-shadow-md" />
+                  </div>
+                  
+                  <h3 className="font-black text-blue-950 dark:text-white text-[14px] leading-tight mb-2 z-10 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                    {step.title}
+                  </h3>
+                  <p className="text-[12px] text-slate-500 dark:text-slate-400 leading-relaxed z-10 relative">
+                    {step.desc}
+                  </p>
                 </div>
-                <h3 className="font-black text-blue-950 dark:text-white text-[14px] leading-tight mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-[12px] text-slate-500 dark:text-slate-400 leading-relaxed">
-                  {step.desc}
-                </p>
               </motion.div>
             );
           })}
@@ -305,21 +353,25 @@ export function TutorialPage() {
             </div>
 
             <div className="flex flex-col gap-2.5">
-              {SECURITY_CHECKLIST.map((item) => {
+              {SECURITY_CHECKLIST.map((item, idx) => {
                 const isChecked = completedSteps[item.id];
                 const Icon = item.icon;
                 return (
                   <motion.button
                     key={item.id}
+                    initial={{ opacity: 0, x: 20, scale: 0.95 }}
+                    whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                    viewport={{ once: true, margin: "-20px" }}
+                    transition={{ delay: idx * 0.1, type: 'spring', stiffness: 200, damping: 20 }}
                     onClick={() => toggleChecklist(item.id)}
-                    whileHover={{ scale: 1.01 }}
+                    whileHover={{ scale: 1.015, x: 4, transition: { type: 'spring', stiffness: 400, damping: 10 } }}
                     whileTap={{ scale: 0.98 }}
                     layout
                     className={cn(
                       'w-full text-left p-3.5 rounded-2xl border transition-all duration-300 flex items-start gap-3',
                       isChecked 
                         ? 'bg-slate-900 border-slate-900 shadow-sm shadow-slate-900/20' 
-                        : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-slate-300 shadow-sm hover:shadow'
+                        : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-slate-300 hover:shadow-md'
                     )}
                   >
                     <div className={cn(

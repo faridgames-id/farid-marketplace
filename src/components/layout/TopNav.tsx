@@ -52,28 +52,42 @@ function StoreStatus() {
   );
 }
 
+import { motion } from 'framer-motion';
+
 // ─── Desktop Nav Links ────────────────────────────────────────────────────────
 function DesktopNav() {
   return (
-    <nav aria-label="Navigasi desktop" className="hidden md:flex items-center gap-0.5">
+    <nav aria-label="Navigasi desktop" className="hidden md:flex items-center gap-1">
       {DESKTOP_NAV.map(({ to, label }) => (
         <NavLink
           key={to}
           to={to}
           end={to === '/'}
           className={({ isActive }) => cn(
-            'relative px-4 py-2 rounded-xl text-sm font-semibold tracking-wide transition-all duration-200',
+            'relative px-4 py-2.5 rounded-xl text-sm font-bold tracking-wide transition-all duration-300 overflow-hidden group',
             isActive
-              ? 'text-blue-600 bg-blue-50 dark:text-blue-400 dark:bg-blue-500/10'
-              : 'text-slate-500 hover:text-slate-800 hover:bg-slate-50 dark:text-slate-400 dark:hover:text-slate-200 dark:hover:bg-slate-800'
+              ? 'text-blue-700 dark:text-blue-400 bg-blue-50/80 dark:bg-blue-500/10'
+              : 'text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 dark:text-slate-400 dark:hover:text-blue-300 dark:hover:bg-slate-800/50'
           )}
         >
           {({ isActive }) => (
             <>
-              {label}
+              <span className="relative z-10">{label}</span>
+              
+              {/* Animated active indicator */}
               {isActive && (
-                <span className="absolute bottom-1 left-1/4 right-1/4 h-0.5 rounded-full bg-blue-600 dark:bg-blue-500" />
+                <motion.div
+                  layoutId="desktopNavIndicator"
+                  className="absolute bottom-0 left-3 right-3 h-[3px] bg-blue-600 dark:bg-blue-500 rounded-t-full z-10"
+                  initial={false}
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                />
               )}
+
+              {/* Hover sweep effect */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-200/20 to-transparent -translate-x-full group-hover:animate-shimmer" />
+              </div>
             </>
           )}
         </NavLink>
